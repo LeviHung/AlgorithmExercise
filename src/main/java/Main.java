@@ -5,6 +5,8 @@
 import java.util.Scanner;
 import java.util.Objects;
 import java.util.HashSet;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 // FUNCTION 1:
 // What is the Big O of the below function? 
@@ -32,7 +34,7 @@ return true or false
 
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
-  private static Object [] cmpArray = {'z', 3, new String("asd"), "null", 'x'};
+  private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
   
   public static void main(String[] args) {
     int inputKey;
@@ -65,7 +67,8 @@ public class Main {
           System.out.println("The result is " + result);
           break;
         case 5:
-          containCommonItemsByStream();
+          result = containCommonItemsByMethods(usrArray, cmpArray);
+          System.out.println("The result is " + result);
           break;
         default:
           if (inputKey != 0) {
@@ -86,7 +89,7 @@ public class Main {
     System.out.println("2. Recursive Fibonacci Timer");
     System.out.println("3. contain Common Items By Naivety");
     System.out.println("4. contain Common Items By Hash Set");
-    System.out.println("5. contain Common Items By Stream");
+    System.out.println("5. contain Common Items By Methods");
     System.out.println("0. Exit");
     System.out.println("==============================");
     System.out.print("Enter a choice: ");
@@ -218,8 +221,17 @@ public class Main {
     return false;
   }
 
-  public static void containCommonItemsByStream()
+  /**
+   * A better and cleaner solution which use a Hast set and Stream method.
+   * time complexity of O(b) - linear
+   * space complexity of O(a) - linear
+   * @param array1 - the first input array
+   * @param array2 - the second input array
+   * @return A boolean indicating whether those two arrays have any common items
+   */
+  public static boolean containCommonItemsByMethods(Object [] array1, Object [] array2)
   {
-
+    HashSet<Object> mapArray1 = new HashSet<>(Arrays.asList(array1));
+    return Stream.of(array2).anyMatch(mapArray1::contains);
   }
 }
