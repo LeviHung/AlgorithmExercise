@@ -4,32 +4,40 @@
 
 import java.util.Scanner;
 import java.util.Objects;
+import java.util.HashSet;
+
+// FUNCTION 1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
 // ANS: It depends on anotherFunction function. If there is not a function
 // in the funChallege, the big O will be O(n);
 
+// FUNCTION 2:
+// Check the executive time for the Recursive Fibonacci method. 
+
+// FUNCTION 3, 4, 5:
 /* Given 2 arrays, create a function that let's a user know (true/false)
-  whether these two arrays contain any common items
-  For Example:
-  const array1 = ['a', 'b', 'c', 'x'];
-  const array2 = ['z', 'y', 'i'];
-  should return false.
-  -----------
-  const array1 = ['a', 'b', 'c', 'x'];
-  const array2 = ['z', 'y', 'x'];
-  should return true.
-  2 parameters - arrays - no size limit
-  return true or false
-  */
+whether these two arrays contain any common items
+For Example:
+const array1 = ['a', 'b', 'c', 'x'];
+const array2 = ['z', 'y', 'i'];
+should return false.
+-----------
+const array1 = ['a', 'b', 'c', 'x'];
+const array2 = ['z', 'y', 'x'];
+should return true.
+2 parameters - arrays - no size limit
+return true or false
+*/
 
 public class Main {
-  private static Object [] usrArray = {'a', "asdf", '7', 'r', null};
-  private static Object [] cmpArray = {'z', new String("asd"), null, 'x'};
+  private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
+  private static Object [] cmpArray = {'z', 3, new String("asd"), "null", 'x'};
   
   public static void main(String[] args) {
     int inputKey;
-
+    boolean result;
+    
     // Create a Scanner object for keyboard input.
     Scanner keyboard = new Scanner(System.in);
 
@@ -49,11 +57,12 @@ public class Main {
           RecursiveFibonacciTimer();
           break;
         case 3:
-          boolean result = containCommonItemsByNaivety(usrArray, cmpArray);
+          result = containCommonItemsByNaivety(usrArray, cmpArray);
           System.out.println("The result is " + result);
           break;
         case 4:
-          containCommonItemsByHashSet();
+          result = containCommonItemsByHashSet(usrArray, cmpArray);
+          System.out.println("The result is " + result);
           break;
         case 5:
           containCommonItemsByStream();
@@ -181,9 +190,32 @@ public class Main {
     //return result;
   }
 
-  public static void containCommonItemsByHashSet()
+  /**
+  * Use Hash Set method to check whether the two arrays have common items.
+  * time complexity of O(b) - linear
+  * space complexity of O(a) - linear
+  * @param array1 the first input array.
+  * @param array2 the second input array.
+  * @return A boolean indicating whether two arrays have any common items.
+  */
+  public static boolean containCommonItemsByHashSet(Object [] array1, Object [] array2)
   {
+    HashSet<Object> mapArray1 = new HashSet<>();
 
+    // loop through first array and create a hash set, 
+    // where keys are the items in the array
+    for (int i = 0; i < array1.length; i++) {
+      mapArray1.add(array1[i]);
+    }
+
+    // loop through the second array and check if the item in second array
+    // exists in the hash set. 
+    for (int j = 0; j < array2.length; j++) {
+      if (mapArray1.contains(array2[j])) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static void containCommonItemsByStream()
