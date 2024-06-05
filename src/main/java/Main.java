@@ -3,16 +3,32 @@
 // Algorthim in Udemy course
 
 import java.util.Scanner;
+import java.util.Objects;
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
 // ANS: It depends on anotherFunction function. If there is not a function
 // in the funChallege, the big O will be O(n);
 
+/* Given 2 arrays, create a function that let's a user know (true/false)
+  whether these two arrays contain any common items
+  For Example:
+  const array1 = ['a', 'b', 'c', 'x'];
+  const array2 = ['z', 'y', 'i'];
+  should return false.
+  -----------
+  const array1 = ['a', 'b', 'c', 'x'];
+  const array2 = ['z', 'y', 'x'];
+  should return true.
+  2 parameters - arrays - no size limit
+  return true or false
+  */
 
 public class Main {
+  private static Object [] usrArray = {'a', "asdf", '7', 'r', null};
+  private static Object [] cmpArray = {'z', new String("asd"), null, 'x'};
+  
   public static void main(String[] args) {
     int inputKey;
-    boolean result;
 
     // Create a Scanner object for keyboard input.
     Scanner keyboard = new Scanner(System.in);
@@ -32,6 +48,16 @@ public class Main {
         case 2:
           RecursiveFibonacciTimer();
           break;
+        case 3:
+          boolean result = containCommonItemsByNaivety(usrArray, cmpArray);
+          System.out.println("The result is " + result);
+          break;
+        case 4:
+          containCommonItemsByHashSet();
+          break;
+        case 5:
+          containCommonItemsByStream();
+          break;
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -49,6 +75,9 @@ public class Main {
     System.out.println("\n==============================");
     System.out.println("1. First Algorthm Exercise");
     System.out.println("2. Recursive Fibonacci Timer");
+    System.out.println("3. contain Common Items By Naivety");
+    System.out.println("4. contain Common Items By Hash Set");
+    System.out.println("5. contain Common Items By Stream");
     System.out.println("0. Exit");
     System.out.println("==============================");
     System.out.print("Enter a choice: ");
@@ -125,4 +154,40 @@ public class Main {
          return fib(n-2) + fib(n-1);
   }
 
+  /**
+  * A "naive" approach for solving the question, with
+  * time complexity of O(a * b) - exponential
+  * space complexity of O(1) - constant.
+  * @param array1 the first input array.
+  * @param array2 the second input array.
+  * @return A boolean indicating whether two arrays have any common items.
+  */
+  public static boolean containCommonItemsByNaivety(Object [] array1, Object [] array2)
+  {
+    //boolean result = false;
+    for (int i = 0; i < array1.length; i++) {
+      for (int j = 0; j < array2.length; j++) {
+        if (Objects.equals(array1[i], array2[j])) {
+          // BugFix: If the object of the array is null, it will throw a NullPointerException.
+          //if (array1[i].equals(array2[j])) {
+
+          // Modified: Use return immediately instead of setting result variable.
+          //result = true;
+          return true;
+        }
+      }
+    }
+    return false;
+    //return result;
+  }
+
+  public static void containCommonItemsByHashSet()
+  {
+
+  }
+
+  public static void containCommonItemsByStream()
+  {
+
+  }
 }
