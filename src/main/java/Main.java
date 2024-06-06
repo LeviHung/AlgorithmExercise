@@ -42,6 +42,14 @@ import java.util.stream.Stream;
   [1, 2, 4, 4], sum = 8,
   should return true, the matching pair is 4 and 4.
 */
+// FUNCTION 7
+/* Design a array class that can store objects and 
+ * has the methods related to array operations.
+   For exampe:
+   thisArray.push("Hi,"),
+   thisArray.push("there"),
+   thismyArray should show "Hi, there"
+*/
 
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
@@ -87,6 +95,9 @@ public class Main {
           result = findMatchingPair(colArray, targetSum);
           System.out.println("The result is " + result);
           break;
+        case 7:
+          buildMyObjArray();
+          break;
 
         default:
           if (inputKey != 0) {
@@ -109,6 +120,7 @@ public class Main {
     System.out.println("4. Contain Common Items By Hash Set");
     System.out.println("5. Contain Common Items By Methods");
     System.out.println("6. Find Matching Pair with Sum");
+    System.out.println("7. Build a Object Array");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -241,7 +253,7 @@ public class Main {
   }
 
   /**
-   * A better and cleaner solution that uses a Hast set and Stream method.
+   * A better and cleaner solution which use a Hast set and Stream method.
    * time complexity of O(b) - linear
    * space complexity of O(a) - linear
    * @param array1 - the first input array
@@ -273,5 +285,14 @@ public class Main {
       return true;
     }
     return false;
+  }
+
+  public static void buildMyObjArray()
+  {
+    MyObjArray myArray = new MyObjArray();
+    myArray.push("Hi, ");
+    myArray.push("there! ");
+    //myArray.delete(0);
+    System.out.println(myArray.toString());
   }
 }
