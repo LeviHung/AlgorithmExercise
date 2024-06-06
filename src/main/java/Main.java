@@ -1,6 +1,6 @@
 // Levi Hung
 // 06/04/24
-// Algorthim in Udemy course
+// Algorithm in Udemy course
 
 import java.util.Scanner;
 import java.util.Objects;
@@ -18,28 +18,41 @@ import java.util.stream.Stream;
 // Check the executive time for the Recursive Fibonacci method. 
 
 // FUNCTION 3, 4, 5:
-/* Given 2 arrays, create a function that let's a user know (true/false)
-whether these two arrays contain any common items
-For Example:
-const array1 = ['a', 'b', 'c', 'x'];
-const array2 = ['z', 'y', 'i'];
-should return false.
------------
-const array1 = ['a', 'b', 'c', 'x'];
-const array2 = ['z', 'y', 'x'];
-should return true.
-2 parameters - arrays - no size limit
-return true or false
+/* Given 2 arrays, create a function that let a user know (true/false)
+  whether these two arrays contain any common items
+  For Example:
+  const array1 = ['a', 'b', 'c', 'x'];
+  const array2 = ['z', 'y', 'i'];
+  should return false.
+  -----------
+  const array1 = ['a', 'b', 'c', 'x'];
+  const array2 = ['z', 'y', 'x'];
+  should return true.
+  2 parameters - arrays - no size limit
+  return true or false
+*/
+
+// FUNCTION 6
+/* Given a collection of numbers and find a matching pair that is equal to
+  a sum.
+  For example:
+  [1, 2, 3, 9], sum = 8, 
+  should return false.
+  ----------------------
+  [1, 2, 4, 4], sum = 8,
+  should return true, the matching pair is 4 and 4.
 */
 
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
-  
+  private static int [] colArray = {1, 2, 4, 4};
+  private static int targetSum = 8;
+
   public static void main(String[] args) {
     int inputKey;
     boolean result;
-    
+
     // Create a Scanner object for keyboard input.
     Scanner keyboard = new Scanner(System.in);
 
@@ -70,6 +83,11 @@ public class Main {
           result = containCommonItemsByMethods(usrArray, cmpArray);
           System.out.println("The result is " + result);
           break;
+        case 6:
+          result = findMatchingPair(colArray, targetSum);
+          System.out.println("The result is " + result);
+          break;
+
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -78,20 +96,21 @@ public class Main {
       }
     } while (inputKey != 0);
   }
-    
+
   /**
     * The displayMenu method displays a console menu.
     */
   public static void displayMenu()
   {
-    System.out.println("\n==============================");
+    System.out.println("\n======================================");
     System.out.println("1. First Algorthm Exercise");
     System.out.println("2. Recursive Fibonacci Timer");
-    System.out.println("3. contain Common Items By Naivety");
-    System.out.println("4. contain Common Items By Hash Set");
-    System.out.println("5. contain Common Items By Methods");
+    System.out.println("3. Contain Common Items By Naivety");
+    System.out.println("4. Contain Common Items By Hash Set");
+    System.out.println("5. Contain Common Items By Methods");
+    System.out.println("6. Find Matching Pair With Sum");
     System.out.println("0. Exit");
-    System.out.println("==============================");
+    System.out.println("======================================");
     System.out.print("Enter a choice: ");
   }
 
@@ -129,25 +148,25 @@ public class Main {
     System.out.println("Enter a positive integer:");
     Scanner sc = new Scanner(System.in);
     int number = sc.nextInt();
-    
+
     // Variables used to determine time for a function call
     long currentTime = System.currentTimeMillis();
     long previousTime;
     long elapsedTime = 0;
-    
+
     for (int k = 0; k <= 5; k++)
     {
       // Record time before function call
       previousTime = currentTime;
       System.out.print("The Fibonacci term at position ");
       System.out.print((number + k)  + " is " );
-      
+
       // Compute and print fib term for the next argument
       System.out.println(fib(number + k));
-      
+
       // Record time after function call
       currentTime = System.currentTimeMillis();
-      
+
       // Compute and print elapsed time in seconds
       elapsedTime = (currentTime - previousTime)/1000;
       System.out.println("Computed in " + elapsedTime + " seconds.");
@@ -233,5 +252,18 @@ public class Main {
   {
     HashSet<Object> mapArray1 = new HashSet<>(Arrays.asList(array1));
     return Stream.of(array2).anyMatch(mapArray1::contains);
+  }
+
+  public static boolean findMatchingPair(int [] array, int sum)
+  {
+    boolean result = false;
+    FindMatchingPair fmp = new FindMatchingPair(array, sum);
+
+    if(fmp.findMatchingPair()) {
+      System.out.println("The matching pair is " + fmp.getPair()[0] + 
+                         " and " + fmp.getPair()[1]);
+      return true;
+    }
+    return false;
   }
 }
