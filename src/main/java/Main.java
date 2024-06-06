@@ -254,6 +254,15 @@ public class Main {
     return Stream.of(array2).anyMatch(mapArray1::contains);
   }
 
+  /**
+   * Create a FindMatchingPair object and get the result and matching pair by calling 
+   * its method.
+   * time complexity of O(b) - linear
+   * space complexity of O(a) - linear
+   * @param array1 - the collection of numbers
+   * @param sum - the target sum
+   * @return A boolean indicating whether the array have the matching pair with the sum
+   */
   public static boolean findMatchingPair(int [] array, int sum)
   {
     boolean result = false;
