@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 // Check the executive time for the Recursive Fibonacci method. 
 
 // FUNCTION 3, 4, 5:
-/* Given 2 arrays, create a function that let a user know (true/false)
+/* Given 2 arrays, create a function that lets a user know (true/false)
   whether these two arrays contain any common items
   For Example:
   const array1 = ['a', 'b', 'c', 'x'];
@@ -46,7 +46,7 @@ import java.util.stream.Stream;
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
-  private static int [] colArray = {1, 2, 4, 4};
+  private static int [] colArray = {1, 2, 3, 4, 4, 5};
   private static int targetSum = 8;
 
   public static void main(String[] args) {
@@ -108,7 +108,7 @@ public class Main {
     System.out.println("3. Contain Common Items By Naivety");
     System.out.println("4. Contain Common Items By Hash Set");
     System.out.println("5. Contain Common Items By Methods");
-    System.out.println("6. Find Matching Pair With Sum");
+    System.out.println("6. Find Matching Pair with Sum");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -241,7 +241,7 @@ public class Main {
   }
 
   /**
-   * A better and cleaner solution which use a Hast set and Stream method.
+   * A better and cleaner solution that uses a Hast set and Stream method.
    * time complexity of O(b) - linear
    * space complexity of O(a) - linear
    * @param array1 - the first input array
@@ -261,15 +261,14 @@ public class Main {
    * space complexity of O(a) - linear
    * @param array1 - the collection of numbers
    * @param sum - the target sum
-   * @return A boolean indicating whether the array have the matching pair with the sum
+   * @return A boolean indicating whether the array has the matching pair with the sum
    */
   public static boolean findMatchingPair(int [] array, int sum)
   {
-    boolean result = false;
     FindMatchingPair fmp = new FindMatchingPair(array, sum);
 
     if(fmp.findMatchingPair()) {
-      System.out.println("The matching pair is " + fmp.getPair()[0] + 
+      System.out.println("Matching pair is " + fmp.getPair()[0] + 
                          " and " + fmp.getPair()[1]);
       return true;
     }

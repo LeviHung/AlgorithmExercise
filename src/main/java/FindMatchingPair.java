@@ -1,6 +1,6 @@
 // Levi Hung
 // 06/06/24
-// Algorithm for Google Coding Interview
+// Algorthim for Google Coding Interview
 // https://youtu.be/XKu_SEDAykw
 
 import java.util.HashSet;
@@ -14,13 +14,21 @@ public class FindMatchingPair
   private int sum;
   private int [] matchingArray;
 
+  /**
+   * Constructor
+   * @param array An array of collection of integer numbers.
+   * @param sum The target sum.
+   */
   public FindMatchingPair(int [] array, int sum)
   {
+    // Modified: Assign the array argument to the array field. 
+    /*
     this.array = new int[array.length];
     for (int i = 0; i < array.length; i++) {
       this.array[i] = array[i];
     }
-
+    */
+    this.array = array;
     this.sum = sum;	
     matchingArray = new int[2];
   }
