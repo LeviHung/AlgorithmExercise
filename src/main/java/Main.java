@@ -59,12 +59,24 @@ import java.lang.*;
    The function should return a string ".gnuH iveL ma I ,iH"
 */
 
+//FUNCTION 9
+/* Given two sorted arrays consisting of integer numbers and 
+ * merge them to return an array.
+  For example:
+  array1 = [0, 3, 4, 31]
+  array2 = [4, 6, 30]
+  The function should return [0, 3, 4, 6, 30, 31].
+
+*/
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
   private static int [] colArray = {1, 2, 3, 4, 4, 5};
   private static int targetSum = 8;
   private static String usrString = "Hi, I am Levi Hung.";
+  private static int [] usrSortedArray1 = {0, 3, 4, 31};
+  private static int [] usrSortedArray2 = {4, 6, 30};
+
   public static void main(String[] args) {
     int inputKey;
     boolean result;
@@ -111,6 +123,12 @@ public class Main {
           System.out.println("The user string is    " + usrString);
           System.out.println("The reverse string is " + revString);
           break;
+        case 9:
+          int [] mergeArray = mergeSortedArray(usrSortedArray1, usrSortedArray2);
+          System.out.println("The merge array is");
+          for (int i = 0; i < mergeArray.length; i++)
+            System.out.println(i + ": " + mergeArray[i]);
+          break;
 
         default:
           if (inputKey != 0) {
@@ -135,6 +153,7 @@ public class Main {
     System.out.println("6. Find Matching Pair with Sum");
     System.out.println("7. Build a Object Array");
     System.out.println("8. Reverse String");
+    System.out.println("9. Merge Two Sorted Arrays");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -359,4 +378,21 @@ public class Main {
        return "";
     return recursiveReversal(str.substring(1)) + str.charAt(0);
   }
+
+  /**
+   * Create a FindMatchingPair object and get the result and matching pair by calling 
+   * its method.
+   * time complexity of O(b) - linear
+   * space complexity of O(a) - linear
+   * @param array1 - the collection of numbers
+   * @param sum - the target sum
+   * @return A boolean indicating whether the array has the matching pair with the sum
+   */
+  public static int [] mergeSortedArray(int [] array1, int [] array2)
+  {
+    MergeSortedArrays msa = new MergeSortedArrays(array1, array2);
+
+    return msa.getMergeArrayByOther();
+  }
+
 }
