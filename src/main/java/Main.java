@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.HashSet;
 import java.util.Arrays;
 import java.util.stream.Stream;
+import java.lang.*;
 
 // FUNCTION 1:
 // What is the Big O of the below function? 
@@ -51,12 +52,19 @@ import java.util.stream.Stream;
    thismyArray should show "Hi, there"
 */
 
+// FUNCTION 8
+/* Given a string and reverse the string to return it.
+   For example:
+   str = "Hi, I am Levi Hung."
+   The function should return a string ".gnuH iveL ma I ,iH"
+*/
+
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
   private static int [] colArray = {1, 2, 3, 4, 4, 5};
   private static int targetSum = 8;
-
+  private static String usrString = "Hi, I am Levi Hung.";
   public static void main(String[] args) {
     int inputKey;
     boolean result;
@@ -98,6 +106,11 @@ public class Main {
         case 7:
           buildMyObjArray();
           break;
+        case 8:
+          String revString = reverseString(usrString);
+          System.out.println("The user string is    " + usrString);
+          System.out.println("The reverse string is " + revString);
+          break;
 
         default:
           if (inputKey != 0) {
@@ -121,6 +134,7 @@ public class Main {
     System.out.println("5. Contain Common Items By Methods");
     System.out.println("6. Find Matching Pair with Sum");
     System.out.println("7. Build a Object Array");
+    System.out.println("8. Reverse String");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -294,5 +308,30 @@ public class Main {
     myArray.push("there! ");
     //myArray.delete(0);
     System.out.println(myArray.toString());
+  }
+
+  /**
+   * The reverseString function
+   * time complexity of O(b) - linear
+   * space complexity of O(a) - linear
+   * @param str - the user string
+   * @return A reverse string
+   */
+  public static String reverseString(String str)
+  {
+    if (str == null || !(str instanceof String)) {
+      System.out.println("The string is null or it is not a string type");
+      return null;
+    }
+
+    char [] revStrArray = new char[str.length()];
+    int idxItems = str.length() - 1;
+    for (int i = idxItems, j = 0; i >= 0; i--, j++) {
+      revStrArray[j] = str.charAt(i);
+    }
+    
+    StringBuilder revStr = new StringBuilder();
+    revStr.append(revStrArray); 
+    return revStr.toString();
   }
 }
