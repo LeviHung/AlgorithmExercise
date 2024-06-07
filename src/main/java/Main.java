@@ -329,9 +329,34 @@ public class Main {
     for (int i = idxItems, j = 0; i >= 0; i--, j++) {
       revStrArray[j] = str.charAt(i);
     }
-    
+
     StringBuilder revStr = new StringBuilder();
     revStr.append(revStrArray); 
     return revStr.toString();
+  }
+
+  /**
+   * Other functions for reversing string from nimrod46 on GitHub.
+   */
+  public static String ReverseString(String string) 
+  {
+    String result = "";
+    final int length = string.length();
+    for (int i = length - 1; i >= 0; i--) {
+      result += string.charAt(i);
+    }
+    return result;
+  }
+
+  public static String ReverseStringWithReelJava(String string) 
+  {
+    return new StringBuilder(string).reverse().toString();
+  }
+
+  public static String recursiveReversal (String str) 
+  {
+    if (str.length() == 0)  //breakpoint for recursion
+       return "";
+    return recursiveReversal(str.substring(1)) + str.charAt(0);
   }
 }
