@@ -74,8 +74,8 @@ public class Main {
   private static int [] colArray = {1, 2, 3, 4, 4, 5};
   private static int targetSum = 8;
   private static String usrString = "Hi, I am Levi Hung.";
-  private static int [] usrSortedArray1 = {0, 3, 4, 31};
-  private static int [] usrSortedArray2 = {4, 6, 30};
+  private static int [] usrSortedArray2 = {0, 3, 4, 31};
+  private static int [] usrSortedArray1 = {4, 6, 30};
 
   public static void main(String[] args) {
     int inputKey;
@@ -380,19 +380,18 @@ public class Main {
   }
 
   /**
-   * Create a FindMatchingPair object and get the result and matching pair by calling 
-   * its method.
+   * Create a MergeSortedArrays object and get the merged array by its method.
    * time complexity of O(b) - linear
    * space complexity of O(a) - linear
-   * @param array1 - the collection of numbers
-   * @param sum - the target sum
-   * @return A boolean indicating whether the array has the matching pair with the sum
+   * @param array1 - the sorted array 1
+   * @param array1 - the sorted array 2
+   * @return A merged array.
    */
   public static int [] mergeSortedArray(int [] array1, int [] array2)
   {
     MergeSortedArrays msa = new MergeSortedArrays(array1, array2);
 
-    return msa.getMergeArrayByOther();
+    return msa.getMergedArray();
   }
 
 }
