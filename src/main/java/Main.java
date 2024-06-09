@@ -5,9 +5,9 @@
 import java.util.Scanner;
 import java.util.Objects;
 import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
-import java.lang.*;
 
 // FUNCTION 1:
 // What is the Big O of the below function? 
@@ -43,6 +43,7 @@ import java.lang.*;
   [1, 2, 4, 4], sum = 8,
   should return true, the matching pair is 4 and 4.
 */
+
 // FUNCTION 7
 /* Design a array class that can store objects and 
  * has the methods related to array operations.
@@ -66,8 +67,18 @@ import java.lang.*;
   array1 = [0, 3, 4, 31]
   array2 = [4, 6, 30]
   The function should return [0, 3, 4, 6, 30, 31].
-
 */
+
+//FUNCTION 10
+// Design a hash table class that can store keys and values.
+// it also has some methods related to hash table operations.
+// For exampe:
+// thisHashTable.set("grapes", 10000),
+// thisHashTable.set("apples", 54),
+// thisHashTable.set("oranges", 2),
+// thisHashTable.get("oranges") should return 10000, 
+// thisHashTable.keys() should return an array with "grapes", "apples", and "oranges"
+
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
@@ -129,7 +140,9 @@ public class Main {
           for (int i = 0; i < mergeArray.length; i++)
             System.out.println(i + ": " + mergeArray[i]);
           break;
-
+        case 10:
+          buildHashTable();
+          break;
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -154,6 +167,7 @@ public class Main {
     System.out.println("7. Build a Object Array");
     System.out.println("8. Reverse String");
     System.out.println("9. Merge Two Sorted Arrays");
+    System.out.println("10. Build a Hash Table");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -394,4 +408,22 @@ public class Main {
     return msa.getMergedArray();
   }
 
+  public static void buildHashTable()
+  {
+    MyArrayListHashTable myHashTable = new MyArrayListHashTable(50);
+    //MyHashTable myHashTable = new MyHashTable(50);
+
+    myHashTable.set("grapes", 10000);
+    myHashTable.set("apples", 58);
+    myHashTable.set("oranges", 2);
+    System.out.println("The amount of grapes is " + myHashTable.get("grapes"));
+    System.out.println("The amount of apples is " + myHashTable.get("apples"));
+    System.out.println("The amount of oranges is " + myHashTable.get("oranges"));
+
+
+    ArrayList<String> strList = myHashTable.getKeys();
+    for (int i = 0; i < strList.size(); i++) {
+      System.out.println(i + ": " + strList.get(i).toString());
+    }
+  }
 }
