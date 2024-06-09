@@ -79,6 +79,18 @@ import java.util.stream.Stream;
 // thisHashTable.get("oranges") should return 10000, 
 // thisHashTable.keys() should return an array with "grapes", "apples", and "oranges"
 
+//FUNCTION 11
+// First Recurring number.
+// This function finds the first recurring number from an integer array by using
+// a array list hash table.
+// For exampe:
+// Given an array = [2, 5, 1, 2, 3, 5, 1, 2, 4]:
+// It should return 2.
+// Given an array = [2, 1, 1, 2, 3, 5, 1, 2, 4]:
+// It should return 1.
+// Given an array = [2, 3, 4, 5]:
+// It should return 0.
+
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
@@ -87,6 +99,9 @@ public class Main {
   private static String usrString = "Hi, I am Levi Hung.";
   private static int [] usrSortedArray2 = {0, 3, 4, 31};
   private static int [] usrSortedArray1 = {4, 6, 30};
+  private static int [] usrIntegerArray1 = {2, 5, 1, 2, 3, 5, 1, 2, 4};
+  private static int [] usrIntegerArray2 = {2, 1, 1, 2, 3, 5, 1, 2, 4};
+  private static int [] usrIntegerArray3 = {2, 3, 4, 5};
 
   public static void main(String[] args) {
     int inputKey;
@@ -143,6 +158,20 @@ public class Main {
         case 10:
           buildHashTable();
           break;
+        case 11:
+          System.out.println("The integer array is " + 
+                             Arrays.toString(usrIntegerArray1));
+          System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumber(usrIntegerArray1));
+          System.out.println("The integer array is " + 
+                             Arrays.toString(usrIntegerArray2));
+          System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumber(usrIntegerArray2));
+          System.out.println("The integer array is " + 
+                             Arrays.toString(usrIntegerArray3));
+          System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumber(usrIntegerArray3));
+          break;
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -168,6 +197,7 @@ public class Main {
     System.out.println("8. Reverse String");
     System.out.println("9. Merge Two Sorted Arrays");
     System.out.println("10. Build a Hash Table");
+    System.out.println("11. Find the First Recurring Number");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -426,4 +456,27 @@ public class Main {
       System.out.println(i + ": " + strList.get(i).toString());
     }
   }
+
+  /**
+   * Create a MyArrayListHashTable object and get the first recurring number of 
+   * an integer array..
+   * time complexity of O(n) - linear
+   * space complexity of O(n) - linear
+   * @param array1 - the integer array
+   * @return the first recurring number
+   */
+  public static int findFirstRecurringNumber(int [] array)
+  {
+    MyArrayListHashTable myHashTable = new MyArrayListHashTable(array.length);
+
+    for (int i = 0; i < array.length; i++) {
+      if (myHashTable.get(Integer.toString(array[i])) == 0) {
+        myHashTable.set(Integer.toString(array[i]), 1);
+      } else {
+        return array[i];
+      }	
+    }
+
+    return 0;
+  }	
 }
