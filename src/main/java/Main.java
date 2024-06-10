@@ -91,6 +91,13 @@ import java.util.stream.Stream;
 // Given an array = [2, 3, 4, 5]:
 // It should return 0.
 
+// FUNCTION 12
+// Find the first recurring number by looping through the array
+// and fix the problem. 
+// For example:
+// Given an array = [2, 5, 5, 2, 3, 5, 1, 2, 4]:
+// It should return 5, but looping through will return 2.
+
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
@@ -102,6 +109,9 @@ public class Main {
   private static int [] usrIntegerArray1 = {2, 5, 1, 2, 3, 5, 1, 2, 4};
   private static int [] usrIntegerArray2 = {2, 1, 1, 2, 3, 5, 1, 2, 4};
   private static int [] usrIntegerArray3 = {2, 3, 4, 5};
+  private static int [] usrIntegerArray4 = {2, 1, 5, 4, 2, 5, 1, 2, 4};
+  private static int [] usrIntegerArray5 = {2, 5, 5, 2, 3, 5, 1, 2, 4};
+  private static int [] usrIntegerArray6 = {2, 5, 4, 4, 5, 2, 1, 2, 4};
 
   public static void main(String[] args) {
     int inputKey;
@@ -171,6 +181,20 @@ public class Main {
                              Arrays.toString(usrIntegerArray3));
           System.out.println("The first recurring number is " +  
                              findFirstRecurringNumber(usrIntegerArray3));
+        case 12:
+          System.out.println("The integer array is " + 
+                             Arrays.toString(usrIntegerArray4));
+          System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumberByLoop(usrIntegerArray4));
+          System.out.println("The integer array is " + 
+                              Arrays.toString(usrIntegerArray5));
+          System.out.println("The first recurring number is " +  
+                              findFirstRecurringNumberByLoop(usrIntegerArray5));
+          System.out.println("The integer array is " + 
+                              Arrays.toString(usrIntegerArray6));
+          System.out.println("The first recurring number is " +  
+                              findFirstRecurringNumberByLoop(usrIntegerArray6));
+
           break;
         default:
           if (inputKey != 0) {
@@ -198,6 +222,7 @@ public class Main {
     System.out.println("9. Merge Two Sorted Arrays");
     System.out.println("10. Build a Hash Table");
     System.out.println("11. Find the First Recurring Number");
+    System.out.println("12. Find the First Recurring Number by For Loop");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -479,4 +504,40 @@ public class Main {
 
     return 0;
   }	
+
+  /**
+   * Fnd the first recurring number of an integer array by looking through the
+   * array.
+   * time complexity of O(n^2) - exponential
+   * space complexity of O(n) - constant
+   * @param array1 - the integer array
+   * @return the first recurring number
+   */
+  public static int findFirstRecurringNumberByLoop(int [] array)
+  {
+    int idx = 0;
+    int minIdx = array.length;
+    int [] found = new int[array.length];
+
+    for (int i = 0; i < array.length ; i++) {
+      for (int j = i + 1; j < array.length; j++) {
+        if (array[i] == array[j]) {
+          // Assign found array with the first index of the recurring number.
+          found[i] = j;
+          break;
+        }
+      }
+    }
+
+    // Find the minimun index of the recurring number 
+    // that will be the first recurring number.
+    for (int i = 0; i < array.length; i++) {
+      if (found[i] > 0 && minIdx > found[i]) {
+        minIdx = found[i];
+        idx = i;
+      }
+    }
+    return array[idx];
+  }	
+
 }
