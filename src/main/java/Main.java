@@ -200,7 +200,6 @@ public class Main {
           buildHashTable();
           break;
         case 9:
-
           do {
             displayFirstRecurringNumberMenu();
             subKey = keyboard.nextInt();
@@ -258,7 +257,24 @@ public class Main {
           break;
 
         case 10:
-          buildLinkedList();
+          do {
+            displayLinkedListMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            switch (subKey) {
+              case 1:
+                buildLinkedList();;
+                break;
+              case 2:
+                buildDoublyLinkedList();
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
           break;
 
         default:
@@ -312,6 +328,15 @@ public class Main {
     System.out.print("Enter a choice: ");
   }
 
+  public static void displayLinkedListMenu()
+  {
+    System.out.println("\n--------------------------------------");
+    System.out.println("1. Build a Linked List");
+    System.out.println("2. Build a Doubly Linked List");
+    System.out.println("0. Exit");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }
 
 
   public static void firstExercise()
@@ -628,23 +653,78 @@ public class Main {
 
   public static void buildLinkedList()
   {
-    LinkedList myLinkedList = new LinkedList();
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.append(10);
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.append(5);
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.append(16);
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.prepend(1);
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.insert(2, 99);
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.remove(0);
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.remove(3);    
-    System.out.println(Arrays.toString(myLinkedList.getList()));
-    myLinkedList.remove(1);
-    System.out.println(Arrays.toString(myLinkedList.getList()));
+    System.out.print("LinkedList():\t");
+    LinkedList myLL = new LinkedList();
+    System.out.println(Arrays.toString(myLL.getList()));
+
+    System.out.print("append(10):\t");
+    myLL.append(10);
+    System.out.println(Arrays.toString(myLL.getList()));
+
+    System.out.print("append(5):\t");
+    myLL.append(5);
+    System.out.println(Arrays.toString(myLL.getList()));
+
+    System.out.print("append(16):\t");
+    myLL.append(16);
+    System.out.println(Arrays.toString(myLL.getList()));
+
+    System.out.print("prepend(1):\t");
+    myLL.prepend(1);
+    System.out.println(Arrays.toString(myLL.getList()));
+
+    System.out.print("insert(2, 99):\t");    
+    myLL.insert(2, 99);
+    System.out.println(Arrays.toString(myLL.getList()));
+
+    System.out.print("remove(0):\t");    
+    myLL.remove(0);
+    System.out.println(Arrays.toString(myLL.getList()));
+    myLL.remove(3);
+
+    System.out.print("remove(3):\t");    
+    System.out.println(Arrays.toString(myLL.getList())); 
+  }
+
+  public static void buildDoublyLinkedList()
+  {
+    System.out.print("DLinkedList():");
+    DLinkedList myDLL = new DLinkedList();
+    System.out.println(Arrays.toString(myDLL.getListBackward()));
+
+    System.out.println("append(10):");
+    myDLL.append(10);
+    System.out.println(Arrays.toString(myDLL.getList()));
+    System.out.println(Arrays.toString(myDLL.getListBackward()));
+
+    System.out.println("append(5):");
+    myDLL.append(5);
+    System.out.println(Arrays.toString(myDLL.getList()));
+    System.out.println(Arrays.toString(myDLL.getListBackward()));
+
+    System.out.println("append(16):");
+    myDLL.append(16);
+    System.out.println(Arrays.toString(myDLL.getList()));
+    System.out.println("" + Arrays.toString(myDLL.getListBackward()));
+
+    System.out.println("prepend(1):");
+    myDLL.prepend(1);
+    System.out.println(Arrays.toString(myDLL.getList()));
+    System.out.println(Arrays.toString(myDLL.getListBackward()));
+
+    System.out.println("insert(2, 99):");    
+    myDLL.insert(2, 99);
+    System.out.println(Arrays.toString(myDLL.getList()));
+    System.out.println(Arrays.toString(myDLL.getListBackward()));
+
+    System.out.println("remove(0):");    
+    myDLL.remove(0);
+    System.out.println(Arrays.toString(myDLL.getList()));
+    System.out.println(Arrays.toString(myDLL.getListBackward()));
+
+    System.out.println("remove(3):");    
+    myDLL.remove(3);    
+    System.out.println(Arrays.toString(myDLL.getList()));
+    System.out.println(Arrays.toString(myDLL.getListBackward()));
   }
 }
