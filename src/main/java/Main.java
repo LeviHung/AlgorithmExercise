@@ -91,12 +91,21 @@ import java.util.stream.Stream;
 // Given an array = [2, 3, 4, 5]:
 // It should return 0.
 
-// FUNCTION 10:
+// FUNCTION 9-2:
 // Find the first recurring number by looping through the array
 // and fix the problem. 
 // For example:
 // Given an array = [2, 5, 5, 2, 3, 5, 1, 2, 4]:
 // It should return 5, but looping through will return 2.
+
+// FUNCTION 10:
+// Design a linked list class that can store integers.
+// For example:
+// 10 -> 5 -> 16 -> null
+
+// FUNCTION 10-2:
+// Design a doubly linked list class.
+// null <- 10 <-> 5 <-> 16 -> null
 
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
@@ -245,8 +254,13 @@ public class Main {
                 }
                 break;
             } 
-          }while (subKey != 0);
+          } while (subKey != 0);
           break;
+
+        case 10:
+          buildLinkedList();
+          break;
+
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -271,6 +285,7 @@ public class Main {
     System.out.println("7. Merge Two Sorted Arrays");
     System.out.println("8. Build a Hash Table");
     System.out.println("9. Find the First Recurring Number");
+    System.out.println("10. Build a Linked List");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -611,4 +626,25 @@ public class Main {
     return array[idx];
   }	
 
+  public static void buildLinkedList()
+  {
+    LinkedList myLinkedList = new LinkedList();
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.append(10);
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.append(5);
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.append(16);
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.prepend(1);
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.insert(2, 99);
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.remove(0);
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.remove(3);    
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+    myLinkedList.remove(1);
+    System.out.println(Arrays.toString(myLinkedList.getList()));
+  }
 }
