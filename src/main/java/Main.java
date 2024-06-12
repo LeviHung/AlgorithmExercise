@@ -293,10 +293,13 @@ public class Main {
             keyboard.nextLine();
             switch (subKey) {
               case 1:
-                buildLinkedQueue();;
+                buildLinkedStack();;
                 break;
               case 2:
-                buildArrayQueue();
+                buildArrayStack();
+                break;
+              case 3:
+                buildLinkedQueue();
                 break;
               default:
                 if (subKey != 0) {
@@ -770,7 +773,7 @@ public class Main {
     System.out.println(Arrays.toString(myDLL.getListBackward()));
   }
 
-  public static void buildLinkedQueue()
+  public static void buildLinkedStack()
   {
     LinkedStack myStack = new LinkedStack();
     System.out.println("push(\"Google\")");
@@ -810,7 +813,7 @@ public class Main {
     }    	
   }
 
-  public static void buildArrayQueue()
+  public static void buildArrayStack()
   {
     ArrayStack myStack = new ArrayStack(3);
 
@@ -856,6 +859,46 @@ public class Main {
 
     } catch (Exception e) {
       System.out.println(e.getMessage());
+    }    	
+  }
+
+  public static void buildLinkedQueue()
+  {
+    LinkedQueue myQueue = new LinkedQueue();
+    System.out.println("enqueue(\"Google\")");
+    myQueue.enqueue("Google");
+
+    System.out.println("enqueue(\"Udemy\")");
+    myQueue.enqueue("Udemy");
+
+    System.out.println("enqueue(\"Discord\")");
+    myQueue.enqueue("Discord");
+
+
+    try {
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+    } catch (Exception e) {
+      System.out.println("Error! The Queue is empty.");
     }    	
   }
 }
