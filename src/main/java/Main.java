@@ -301,6 +301,9 @@ public class Main {
               case 3:
                 buildLinkedQueue();
                 break;
+              case 4:
+                buildArrayQueue();
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -899,6 +902,55 @@ public class Main {
 
     } catch (Exception e) {
       System.out.println("Error! The Queue is empty.");
+    }    	
+  }
+
+  public static void buildArrayQueue()
+  {
+    ArrayQueue myQueue = new ArrayQueue(3);
+
+    try {	
+      System.out.println("enqueue(\"Google\")");
+      myQueue.enqueue("Google");
+
+      System.out.println("enqueue(\"Udemy\")");
+      myQueue.enqueue("Udemy");
+
+      System.out.println("enqueue(\"Discord\")");
+      myQueue.enqueue("Discord");
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.println("enqueue(\"Google\")");
+      myQueue.enqueue("Google");
+
+      System.out.println("enqueue(\"Udemy\")");
+      myQueue.enqueue("Udemy");
+
+      System.out.println("enqueue(\"Discord\")");
+      myQueue.enqueue("Discord");
+
+      System.out.println("enqueue(\"LinkedIn\")");
+      myQueue.enqueue("LinkedIn");
+
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
     }    	
   }
 }
