@@ -107,6 +107,15 @@ import java.util.stream.Stream;
 // Design a doubly linked list class.
 // null <- 10 <-> 5 <-> 16 -> null
 
+//FUNCTION 11:
+// Design a stack and queue class that can pop/push, enqueue/dequeue, and peek.
+// For example:
+// push("Google")
+// push("Udemy")
+// push(Discord")
+// peek(), it should return "Discord".
+// pop() and peek(), it should return "Udemy".
+
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
   private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
@@ -277,6 +286,25 @@ public class Main {
           } while (subKey != 0);
           break;
 
+        case 11:
+          do {
+            displayStackQueueMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            switch (subKey) {
+              case 1:
+                buildLinkedQueue();;
+                break;
+              case 2:
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
+          break;
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -302,6 +330,7 @@ public class Main {
     System.out.println("8. Build a Hash Table");
     System.out.println("9. Find the First Recurring Number");
     System.out.println("10. Build a Linked List");
+    System.out.println("11. Build a Stack and Queue");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -338,6 +367,18 @@ public class Main {
     System.out.print("Enter a choice: ");
   }
 
+
+  public static void displayStackQueueMenu()
+  {
+    System.out.println("\n--------------------------------------");
+    System.out.println("1. Build a Linked Stack");
+    System.out.println("2. Build a Array Stack");
+    System.out.println("3. Build a Linked Queue");
+    System.out.println("4. Build a Array Queue");
+    System.out.println("0. Exit");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }
 
   public static void firstExercise()
   {    
@@ -726,5 +767,42 @@ public class Main {
     myDLL.remove(3);    
     System.out.println(Arrays.toString(myDLL.getList()));
     System.out.println(Arrays.toString(myDLL.getListBackward()));
+  }
+
+  public static void buildLinkedQueue()
+  {
+    LinkedStack myLS = new LinkedStack();
+    System.out.println("push(\"Google\")");
+    myLS.push("Google");
+
+    System.out.println("push(\"Udemy\")");
+    myLS.push("Udemy");
+
+    System.out.println("push(\"Discord\")");
+    myLS.push("Discord");
+
+
+    try {
+      System.out.println("peek():\t");
+      System.out.println(myLS.peek());
+
+      System.out.println("pop():\t");
+      System.out.println(myLS.pop());
+
+      System.out.println("peek():\t");
+      System.out.println(myLS.peek());
+
+      System.out.println("pop():\t");
+      System.out.println(myLS.pop());
+
+      System.out.println("pop():\t");
+      System.out.println(myLS.pop());
+
+      System.out.println("pop():\t");
+      System.out.println(myLS.pop());
+
+    } catch (Exception e) {
+      System.out.println("Error! The Stack is empty.");
+    }    	
   }
 }
