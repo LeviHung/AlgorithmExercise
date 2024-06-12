@@ -1,7 +1,7 @@
 
 /**
  * Linked Stack Class
- * This stack class is based on linked list.
+ * This stack class is based on a linked list.
  */
 public class LinkedStack {
 
@@ -21,16 +21,15 @@ public class LinkedStack {
       this.value = value;
       this.next = null;
     }
-
     /**
      * Constructor.
      * @param value The element to store in the node.
      * @param node The reference next node.
      */
-    Node(String value, Node node)
+    Node(String value, Node next)
     {
       this.value = value;
-      this.next = node;
+      this.next = next;
     }
   }
 
@@ -52,7 +51,7 @@ public class LinkedStack {
   public String pop() throws Exception
   {
     if (top == null) {
-      throw new Exception();
+      throw new Exception("Error! The Stack is empty.");
     }
 
     String strResult = top.value;
@@ -64,7 +63,7 @@ public class LinkedStack {
   public String peek() throws Exception
   {
     if (top == null) {
-      throw new Exception();
+      throw new Exception("Error! The Stack is empty.");
     }
 
     return top.value;

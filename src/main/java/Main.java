@@ -296,6 +296,7 @@ public class Main {
                 buildLinkedQueue();;
                 break;
               case 2:
+                buildArrayQueue();
                 break;
               default:
                 if (subKey != 0) {
@@ -771,38 +772,90 @@ public class Main {
 
   public static void buildLinkedQueue()
   {
-    LinkedStack myLS = new LinkedStack();
+    LinkedStack myStack = new LinkedStack();
     System.out.println("push(\"Google\")");
-    myLS.push("Google");
+    myStack.push("Google");
 
     System.out.println("push(\"Udemy\")");
-    myLS.push("Udemy");
+    myStack.push("Udemy");
 
     System.out.println("push(\"Discord\")");
-    myLS.push("Discord");
+    myStack.push("Discord");
 
 
     try {
-      System.out.println("peek():\t");
-      System.out.println(myLS.peek());
+      System.out.print("peek():\t");
+      System.out.println(myStack.peek());
 
-      System.out.println("pop():\t");
-      System.out.println(myLS.pop());
+      System.out.print("pop():\t");
+      System.out.println(myStack.pop());
 
-      System.out.println("peek():\t");
-      System.out.println(myLS.peek());
+      System.out.print("peek():\t");
+      System.out.println(myStack.peek());
 
-      System.out.println("pop():\t");
-      System.out.println(myLS.pop());
+      System.out.print("pop():\t");
+      System.out.println(myStack.pop());
 
-      System.out.println("pop():\t");
-      System.out.println(myLS.pop());
+      System.out.print("peek():\t");
+      System.out.println(myStack.peek());
 
-      System.out.println("pop():\t");
-      System.out.println(myLS.pop());
+      System.out.print("pop():\t");
+      System.out.println(myStack.pop());
+
+      System.out.print("pop():\t");
+      System.out.println(myStack.pop());
 
     } catch (Exception e) {
       System.out.println("Error! The Stack is empty.");
+    }    	
+  }
+
+  public static void buildArrayQueue()
+  {
+    ArrayStack myStack = new ArrayStack(3);
+
+    try {	
+      System.out.println("push(\"Google\")");
+      myStack.push("Google");
+
+      System.out.println("push(\"Udemy\")");
+      myStack.push("Udemy");
+
+      System.out.println("push(\"Discord\")");
+      myStack.push("Discord");
+
+      System.out.print("peek():\t");
+      System.out.println(myStack.peek());
+
+      System.out.print("pop():\t");
+      System.out.println(myStack.pop());
+
+      System.out.print("peek():\t");
+      System.out.println(myStack.peek());
+
+      System.out.print("pop():\t");
+      System.out.println(myStack.pop());
+
+      System.out.print("peek():\t");
+      System.out.println(myStack.peek());
+
+      System.out.print("pop():\t");
+      System.out.println(myStack.pop());
+
+      System.out.println("push(\"Google\")");
+      myStack.push("Google");
+
+      System.out.println("push(\"Udemy\")");
+      myStack.push("Udemy");
+
+      System.out.println("push(\"Discord\")");
+      myStack.push("Discord");
+
+      System.out.println("push(\"LinkedIn\")");
+      myStack.push("LinkedIn");
+
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
     }    	
   }
 }
