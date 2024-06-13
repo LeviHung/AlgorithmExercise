@@ -62,4 +62,13 @@ public class ArrayStack {
 
     return array[top - 1];
   }
+
+  /**
+   * 
+   * @return True if the stack is empty. Otherwise false. 
+   */
+  public boolean isEmpty()
+  {
+    return (top == 0);
+  }
 }

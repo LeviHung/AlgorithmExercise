@@ -304,6 +304,9 @@ public class Main {
               case 4:
                 buildArrayQueue();
                 break;
+              case 5:
+                buildStackQueue();
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -382,6 +385,7 @@ public class Main {
     System.out.println("2. Build a Array Stack");
     System.out.println("3. Build a Linked Queue");
     System.out.println("4. Build a Array Queue");
+    System.out.println("5. Build a Stack Queue");
     System.out.println("0. Exit");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -910,6 +914,59 @@ public class Main {
     ArrayQueue myQueue = new ArrayQueue(3);
 
     try {	
+      System.out.println("enqueue(\"Google\")");
+      myQueue.enqueue("Google");
+
+      System.out.println("enqueue(\"Udemy\")");
+      myQueue.enqueue("Udemy");
+
+      System.out.println("enqueue(\"Discord\")");
+      myQueue.enqueue("Discord");
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.print("peek():\t\t");
+      System.out.println(myQueue.peek());
+
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+      System.out.println("enqueue(\"Google\")");
+      myQueue.enqueue("Google");
+
+      System.out.println("enqueue(\"Udemy\")");
+      myQueue.enqueue("Udemy");
+
+      System.out.println("enqueue(\"Discord\")");
+      myQueue.enqueue("Discord");
+
+      System.out.println("enqueue(\"LinkedIn\")");
+      myQueue.enqueue("LinkedIn");
+
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }    	
+  }
+
+  public static void buildStackQueue()
+  {
+    StackQueue myQueue = new StackQueue(3);
+
+    try {	
+      System.out.print("dequeue():\t");
+      System.out.println(myQueue.dequeue());
+
+
       System.out.println("enqueue(\"Google\")");
       myQueue.enqueue("Google");
 
