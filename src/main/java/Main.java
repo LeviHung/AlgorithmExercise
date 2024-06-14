@@ -1080,18 +1080,20 @@ public class Main {
 
     //                     60
     //         30                   72
-    //    14        54                    73
-    // 1        38      55
+    //    14        54         71        74
+    // 1        38      55            73
     //       36    44
     myTree.insert(60);
     myTree.insert(30);
     myTree.insert(72);
     myTree.insert(14);
     myTree.insert(54);
-    myTree.insert(73);
+    myTree.insert(71);
+    myTree.insert(74);
     myTree.insert(1);
     myTree.insert(38);
     myTree.insert(55);
+    myTree.insert(73);
     myTree.insert(36);
     myTree.insert(44);
 
@@ -1099,7 +1101,10 @@ public class Main {
     myTree.printTree();
     System.out.println("");
 
-    myTree.remove(38);
+    System.out.println("remove(60): ");
+    myTree.remove(60);
+    //myTree.remove(30);
+    //myTree.remove(72);
     System.out.println("The binary search tree:");
     myTree.printTree();
     System.out.println("");

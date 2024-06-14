@@ -74,13 +74,7 @@ public class BinarySearchTree extends BinaryTree
    * @param value The value to find.
    * @return True when a node with the value can be removed in the tree,
    *         otherwise, false.
-   */
-
-  //                     60
-  //         30                   72
-  //    14        54                    73
-  // 1        38      55
-  //             44
+   */	
   public boolean remove(int value)
   {
     if (root == null) {
@@ -107,6 +101,11 @@ public class BinarySearchTree extends BinaryTree
         //     make current's left child to be parent's left child.
         // if current > parent, 
         //     make current's left child to be parent's right child.
+        //                     60
+        //         30                   72
+        //    14        54                    73
+        // 1        38      55
+        //             44
         if (current.right == null) {
           if (parent == null) {
             // Remove 60 when the tree doesn't have 72 and 73.
@@ -128,10 +127,9 @@ public class BinarySearchTree extends BinaryTree
         // current.right.left = current.left
         //                     60
         //         30                   72
-        //    14        54                    73
+        //    14        54                   73
         // 1        38      55
         //       36    44
-
         } else if (current.right.left == null) {
           if (parent == null) {
             // Remove 60.
@@ -148,9 +146,34 @@ public class BinarySearchTree extends BinaryTree
           }
           current.right.left = current.left;
 
-          // Option 3: Right child that have a left child (30)
+        // Option 3: Right child that have a left child (30, 60, 72)
+        //                     60
+        //         30                   72
+        //    14        54         71        74
+        // 1        38      55            73
+        //       36    44
         } else {
+          // find the right child's the most left child to substitute current. 
+          // (60 -> 71, 30 -> 36, 72 -> 73)
+          Node mostLeft = current.right.left;
+          Node mostLeftParent = current.right;
+          while (mostLeft.left != null) {
+            mostLeftParent = mostLeft;
+            mostLeft = mostLeft.left;
+          }
+          mostLeftParent.left = mostLeft.right;
+          mostLeft.left  = current.left;
+          mostLeft.right = current.right;
 
+          if (parent == null) {												// remove 60
+            root = mostLeft;
+
+          } else if (current.value < parent.value) {	// remove 30
+            parent.left = mostLeft;
+
+          } else {																		// remove 72
+            parent.right = mostLeft;
+          }
         }
         return true;
       }
