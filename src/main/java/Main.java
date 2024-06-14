@@ -107,7 +107,7 @@ import java.util.stream.Stream;
 // Design a doubly linked list class.
 // null <- 10 <-> 5 <-> 16 -> null
 
-//FUNCTION 11:
+// FUNCTION 11:
 // Design a stack and queue class that can pop/push, enqueue/dequeue, and peek.
 // For example:
 // push("Google")
@@ -115,6 +115,22 @@ import java.util.stream.Stream;
 // push(Discord")
 // peek(), it should return "Discord".
 // pop() and peek(), it should return "Udemy".
+
+// FUNCTION 12:
+// Design a tree, such as binary search tree that can insert, lookup, and remove.
+// For example:
+// insert(9)
+// insert(4)
+// insert(6)
+// insert(20)
+// insert(170)
+// insert(15)
+// insert(1)
+// The binary search tree shuoud be
+//        9
+//    4      20
+//  1   6  15  170
+
 
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
@@ -315,6 +331,24 @@ public class Main {
             }
           } while (subKey != 0);
           break;
+        case 12:
+          do {
+            displayTreeMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            switch (subKey) {
+              case 1:
+                buildBinarySearchTree();;
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
+          break;
+
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -341,6 +375,7 @@ public class Main {
     System.out.println("9. Find the First Recurring Number");
     System.out.println("10. Build a Linked List");
     System.out.println("11. Build a Stack and Queue");
+    System.out.println("12. Build a tree");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -390,6 +425,15 @@ public class Main {
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
   }
+
+  public static void displayTreeMenu()
+  {
+    System.out.println("\n--------------------------------------");
+    System.out.println("1. Build a Binary Search Tree");
+    System.out.println("0. Exit");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }  
 
   public static void firstExercise()
   {    
@@ -1010,4 +1054,28 @@ public class Main {
       System.out.println(e.getMessage());
     }    	
   }
+
+  public static void buildBinarySearchTree()
+  {
+    BinarySearchTree myTree = new BinarySearchTree();
+
+    System.out.println("insert(9), (4), (6), (20), (170), (15), (1)");
+
+    myTree.insert(9);
+    myTree.insert(4);
+    myTree.insert(6);
+    myTree.insert(20);
+    myTree.insert(170);
+    myTree.insert(15);
+    myTree.insert(1);
+
+    System.out.println("Inorder traversal of the binary search tree:");
+    myTree.printTree();
+    System.out.println("");
+
+    System.out.println("lookup(1): " + myTree.lookup(1));
+    System.out.println("lookup(2): " + myTree.lookup(2));
+
+
+  }  
 }
