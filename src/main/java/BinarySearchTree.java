@@ -54,7 +54,7 @@ public class BinarySearchTree extends BinaryTree
 
     Node currentNode = root;
 
-    while(currentNode != null) {
+    while (currentNode != null) {
       if (value < currentNode.value) {
         currentNode = currentNode.left;
 
@@ -69,9 +69,95 @@ public class BinarySearchTree extends BinaryTree
     return false;
   }
 
-  public void remove(int vaule)
-  {
+  /*
+   * The remove method removes a value from the binary search tree.
+   * @param value The value to find.
+   * @return True when a node with the value can be removed in the tree,
+   *         otherwise, false.
+   */
 
+  //                     60
+  //         30                   72
+  //    14        54                    73
+  // 1        38      55
+  //             44
+  public boolean remove(int value)
+  {
+    if (root == null) {
+      return false;
+    }
+
+    Node current = root;
+    Node parent = null;
+
+    while (current != null) {
+      if (value < current.value) {
+        parent = current;
+        current = current.left;
+
+      } else if (value > current.value) {
+        parent = current;
+        current = current.right;
+
+      } else {	// value == current.value
+        // We have a match, get to work.
+
+        // Option 1: No right child. (1, 14, 44, 55, or 73)
+        // if current < parent, 
+        //     make current's left child to be parent's left child.
+        // if current > parent, 
+        //     make current's left child to be parent's right child.
+        if (current.right == null) {
+          if (parent == null) {
+            // Remove 60 when the tree doesn't have 72 and 73.
+            root = current.left;
+            return true;
+          }
+
+          if (current.value < parent.value) {
+            parent.left = current.left;
+
+          } else {
+            parent.right = current.left;
+          }
+
+        // Option 2: Right child that doesn't have a left child. 
+        //           (38, 54, 60, or 72)
+        // if current < parent, parent.left = current.right
+        // if current > parent, parent.right = current.right
+        // current.right.left = current.left
+        //                     60
+        //         30                   72
+        //    14        54                    73
+        // 1        38      55
+        //       36    44
+
+        } else if (current.right.left == null) {
+          if (parent == null) {
+            // Remove 60.
+            current.right.left = current.left;
+            root = current.right;
+            return true;
+          }
+
+          if (current.value < parent.value) {
+            parent.left = current.right;
+
+          } else {
+            parent.right = current.right;
+          }
+          current.right.left = current.left;
+
+          // Option 3: Right child that have a left child (30)
+        } else {
+
+        }
+        return true;
+      }
+    }
+
+
+    return false;
   }
 
   public void printTree()

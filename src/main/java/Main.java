@@ -1059,6 +1059,7 @@ public class Main {
   {
     BinarySearchTree myTree = new BinarySearchTree();
 
+    /*
     System.out.println("insert(9), (4), (6), (20), (170), (15), (1)");
 
     myTree.insert(9);
@@ -1075,7 +1076,33 @@ public class Main {
 
     System.out.println("lookup(1): " + myTree.lookup(1));
     System.out.println("lookup(2): " + myTree.lookup(2));
+    */
 
+    //                     60
+    //         30                   72
+    //    14        54                    73
+    // 1        38      55
+    //       36    44
+    myTree.insert(60);
+    myTree.insert(30);
+    myTree.insert(72);
+    myTree.insert(14);
+    myTree.insert(54);
+    myTree.insert(73);
+    myTree.insert(1);
+    myTree.insert(38);
+    myTree.insert(55);
+    myTree.insert(36);
+    myTree.insert(44);
+
+    System.out.println("The binary search tree:");
+    myTree.printTree();
+    System.out.println("");
+
+    myTree.remove(38);
+    System.out.println("The binary search tree:");
+    myTree.printTree();
+    System.out.println("");
 
   }  
 }
