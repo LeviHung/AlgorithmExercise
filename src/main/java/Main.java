@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
-
+import java.util.Random;
 import javax.swing.JFrame;
 
 // FUNCTION 1:
@@ -345,6 +345,9 @@ public class Main {
               case 2:
                 buildAVLTree();;
                 break;
+              case 3:
+                buildArrayHeapTree();;
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -435,7 +438,8 @@ public class Main {
   {
     System.out.println("\n--------------------------------------");
     System.out.println("1. Build a Binary Search Tree");
-    System.out.println("2. Build a AVL Tree");
+    System.out.println("2. Build an AVL Tree");
+    System.out.println("3. Build an Array Heap Tree");
     System.out.println("0. Exit");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1172,4 +1176,34 @@ public class Main {
     bFrame.setVisible(true);
 
   }    
+
+  public static void buildArrayHeapTree()
+  {
+    // Create and display an array of random integers
+    Random randy = new Random();
+    int [ ] array = new int[10];
+
+    System.out.println("Here is the array to be sorted:");
+    for (int i = 0; i < array.length; i++) {
+      array[i] = randy.nextInt(100);   
+        System.out.print(array[i] + "  ");
+    }
+
+    // Create a heap of integers and use it to sort the array
+    ArrayHeapTree myHeap = new ArrayHeapTree();       
+    for (int x : array) {
+      myHeap.add(x);
+    }
+
+    for (int i = 0; i < array.length; i++) {
+      array[i] = myHeap.removeMin();
+    }
+
+    // Print the array
+    System.out.println("\nHere is the sorted array:");
+    for (int x : array) {
+      System.out.print(x + "  ");       
+    }
+    System.out.println("");
+  }
 }
