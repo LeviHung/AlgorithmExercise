@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+import javax.swing.JFrame;
+
 // FUNCTION 1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
@@ -1108,6 +1110,13 @@ public class Main {
     System.out.println("The binary search tree:");
     myTree.printTree();
     System.out.println("");
+
+    String title = "Graphical Display of Binary Tree";		
+    JFrame bFrame = new JFrame(title);                  
+    bFrame.add(myTree.getView());
+    bFrame.pack();
+    bFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    bFrame.setVisible(true);
 
   }  
 }

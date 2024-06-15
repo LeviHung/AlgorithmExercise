@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * BinarySearchTree Class
  */
@@ -179,7 +182,6 @@ public class BinarySearchTree extends BinaryTree
       }
     }
 
-
     return false;
   }
 
@@ -193,11 +195,53 @@ public class BinarySearchTree extends BinaryTree
    */
   static public void inorder(Node btree)
   {
-     if (btree != null) {
-         inorder(btree.left);
-         System.out.print(btree.value + " ");
-         inorder(btree.right);
-     }
+    if (btree != null) {
+      inorder(btree.left);
+      System.out.print(btree.value + " ");
+      inorder(btree.right);
+    }
+  }
+
+  /**
+   * The BTreeDisplay class graphically displays
+   * trees in a JPanel. The JPanel is recursively
+   * partitioned into a top part dislaying the root,
+   * and two lowerparts displaying the left and 
+   * right subtrees.
+   */	
+  private class BTreeDisplay extends JPanel
+  {
+    /**
+     * Constructor.
+     * @param tree The root of the binary 
+     * tree to display.
+     */
+
+    BTreeDisplay(Node tree)
+    {           
+      setBorder(BorderFactory.createEtchedBorder());
+      setLayout(new BorderLayout());
+      if (tree != null) {
+        String value = String.valueOf(tree.value);  
+        int pos = SwingConstants.CENTER;
+        JLabel rootLabel = new JLabel(value, pos);                         
+        add(rootLabel, BorderLayout.NORTH);
+        JPanel panel = new JPanel(new GridLayout(1, 2));
+        panel.add(new BTreeDisplay(tree.left));
+        panel.add(new BTreeDisplay(tree.right));    
+        add(panel);
+      }
+    }   
+  }
+
+  /**
+   * The getView method creates and returns a 
+   * a graphical view of the binary tree.
+   * @return A panel that displays a view of the tree.
+   */
+  public JPanel getView()
+  {
+    return new BTreeDisplay(root);       
   }
 }
 
