@@ -4,8 +4,16 @@ import java.awt.*;
 /**
  * BinarySearchTree Class
  */
-public class BinarySearchTree extends BinaryTree
+public class BinarySearchTree
 {
+  private Node root;
+
+  // Check if the binary tree is empty.
+  public boolean isEmpty()
+  {
+    return root == null;
+  } 
+
   /**
    * Constructor
    */
@@ -242,46 +250,5 @@ public class BinarySearchTree extends BinaryTree
   public JPanel getView()
   {
     return new BTreeDisplay(root);       
-  }
-}
-
-
-/**
-Base binary tree class
-*/
-class BinaryTree
-{
-  protected Node root;
-
-  // Check if the binary tree is empty.
-  public boolean isEmpty()
-  {
-    return root == null;
-  }    
-}
-
-
-/**
-Node class.
-*/
-class Node
-{
-  int value;
-  Node left, right;
-
-  // Constructor for leaf nodes.
-  Node(int value)
-  {
-    this.value = value;
-    this.left  = null;
-    this.right = null;
-  }
-
-  // Constructor for non-leaf nodes.
-  Node(int value, Node leftChild, Node rightChild)
-  {
-    this.value = value;
-    this.left  = leftChild;
-    this.right = rightChild;
   }
 }

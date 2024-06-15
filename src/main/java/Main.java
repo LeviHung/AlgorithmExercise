@@ -342,6 +342,9 @@ public class Main {
               case 1:
                 buildBinarySearchTree();;
                 break;
+              case 2:
+                buildAVLTree();;
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -432,6 +435,7 @@ public class Main {
   {
     System.out.println("\n--------------------------------------");
     System.out.println("1. Build a Binary Search Tree");
+    System.out.println("2. Build a AVL Tree");
     System.out.println("0. Exit");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1119,4 +1123,53 @@ public class Main {
     bFrame.setVisible(true);
 
   }  
+
+  public static void buildAVLTree()
+  {
+    AVLTree myTree = new AVLTree();
+
+    /*
+    //                   50
+    //            40            60
+    //       30              55       70
+    //  20              
+    // LL imbalance =>
+    //                   50
+    //            30            60
+    //       20       40     55       70
+    System.out.println("insert(50), (40), (60), (30), (55), (70), (20)");
+    myTree.add(50);
+    myTree.add(40);
+    myTree.add(60);
+    myTree.add(30);
+    myTree.add(55);
+    myTree.add(70);
+    myTree.add(20);
+    */
+
+    //                   40
+    //            20            45
+    //       10        30
+    //              25              
+    // LR imbalance =>
+    //                   30
+    //            20            40
+    //       10        25             45
+
+    System.out.println("insert(40), (20), (45), (10), (30), (25)");
+    myTree.add(40);
+    myTree.add(20);
+    myTree.add(45);
+    myTree.add(10);
+    myTree.add(30);
+    myTree.add(25);
+
+    String title = "Graphical Display of AVL Tree";		
+    JFrame bFrame = new JFrame(title);                  
+    bFrame.add(myTree.getView());
+    bFrame.pack();
+    bFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    bFrame.setVisible(true);
+
+  }    
 }
