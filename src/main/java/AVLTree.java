@@ -7,16 +7,8 @@ import java.awt.*;
  * Starting Out with Java 4th Edition From Control Structures 
  * through Data Structures 
  */
-public class AVLTree
+public class AVLTree extends BinaryTree
 {    
-  private Node root;
-
-  // Check if the binary tree is empty.
-  public boolean isEmpty()
-  {
-    return root == null;
-  } 
-
   // Convenience method casts the inherited root
   // from Node to AVLNode.
   private AVLNode getRoot()

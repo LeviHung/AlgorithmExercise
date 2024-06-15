@@ -4,16 +4,8 @@ import java.awt.*;
 /**
  * BinarySearchTree Class
  */
-public class BinarySearchTree
+public class BinarySearchTree extends BinaryTree
 {
-  private Node root;
-
-  // Check if the binary tree is empty.
-  public boolean isEmpty()
-  {
-    return root == null;
-  } 
-
   /**
    * Constructor
    */
