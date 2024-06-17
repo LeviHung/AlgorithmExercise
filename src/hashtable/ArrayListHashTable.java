@@ -1,9 +1,11 @@
+package hashtable;
+
 import java.util.ArrayList;
 
 /*
  * MyArrayListHashTable Class
  */
-public class MyArrayListHashTable {
+public class ArrayListHashTable {
 
   private static class BucketNodes extends ArrayList<BucketNode> {
   }
@@ -14,7 +16,7 @@ public class MyArrayListHashTable {
    * Constructor
    * @param size The size of the hash table
    */
-  public MyArrayListHashTable(int size)
+  public ArrayListHashTable(int size)
   {
     data = new BucketNodes[size];
   }

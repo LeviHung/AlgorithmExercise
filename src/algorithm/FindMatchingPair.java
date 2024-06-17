@@ -3,6 +3,7 @@
 // Algorthim for Google Coding Interview
 // https://youtu.be/XKu_SEDAykw
 
+package algorithm;
 import java.util.HashSet;
 
 /**

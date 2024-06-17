@@ -1,11 +1,13 @@
 // Levi Hung
 // 06/10/24
-// Data Structure of Doubly Linked Lists
+// Data Structure of Linked Lists
+
+package linkedlist;
 
 /**
  * LinkedList Class
  */
-public class DLinkedList {
+public class LinkedList {
 
   /**
    * The node class stores an element and a reference to the next node.
@@ -13,7 +15,7 @@ public class DLinkedList {
   private class Node {
     private int value;
     private Node next;
-    private Node prev;
+
     /**
      * Constructor.
      * @param value The element to store in the node.
@@ -22,7 +24,6 @@ public class DLinkedList {
     {
       this.value = value;
       this.next = null;
-      this.prev = null;
     }
   }
 
@@ -32,7 +33,7 @@ public class DLinkedList {
   /**
    * Constructor.
    */
-  public DLinkedList()
+  public LinkedList()
   {
     first = null;
     last = null;
@@ -78,7 +79,6 @@ public class DLinkedList {
 
     } else {
       last.next = new Node(value);
-      last.next.prev = last;
       last = last.next;
     }
   }
@@ -96,8 +96,6 @@ public class DLinkedList {
     } else {
       Node newNode = new Node(value);
       newNode.next = first;
-      newNode.prev = null;
-      first.prev = newNode;
       first = newNode;
     }
   }
@@ -128,9 +126,7 @@ public class DLinkedList {
       }
 
       newNode.next = pred.next;
-      pred.next.prev = newNode;
       pred.next = newNode;
-      newNode.prev = pred;
     }	
   }
 
@@ -150,7 +146,6 @@ public class DLinkedList {
         last = null;
 
       } else {
-        first.next.prev = null;
         first = first.next;
       }
 
@@ -165,9 +160,6 @@ public class DLinkedList {
 
       if (pred.next == null) {
         last = pred;
-
-      } else {
-        pred.next.prev = pred;
       }
     }	
   }
@@ -187,27 +179,6 @@ public class DLinkedList {
       array[idx] = currentNode.value;
       idx++;
       currentNode = currentNode.next;
-    }
-
-    return array;
-  }
-
-
-  /**
-   *  The getList method gets an array of the elements in the list.
-   *  return array The array of the elements.
-   */
-  public int[] getListBackward()
-  {
-    int[] array = new int [size()];
-    int idx = 0;
-
-    Node currentNode = this.last;
-
-    while (currentNode != null) {
-      array[idx] = currentNode.value;
-      idx++;
-      currentNode = currentNode.prev;
     }
 
     return array;

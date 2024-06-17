@@ -1,6 +1,6 @@
 // Levi Hung
 // 06/04/24
-// Algorithm in Udemy course
+// Data structures and algorithms in Udemy course
 
 import java.util.Scanner;
 import java.util.Objects;
@@ -10,6 +10,22 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.Random;
 import javax.swing.JFrame;
+
+import algorithm.*;
+import algorithm.MergeSortedArrays;
+import array.MyObjArray;
+import hashtable.ArrayListHashTable;
+import linkedlist.LinkedList;
+import linkedlist.DLinkedList;
+import stack.ArrayStack;
+import stack.LinkedStack;
+import queue.ArrayQueue;
+import queue.LinkedQueue;
+import queue.StackQueue;
+import graph.MapGraph;
+import tree.BinarySearchTree;
+import tree.AVLTree;
+import tree.ArrayHeapTree;
 
 // FUNCTION 1:
 // What is the Big O of the below function? 

@@ -1,3 +1,4 @@
+package tree;
 /**
  * Binary Tree Class.
  * The base of the binary tree.

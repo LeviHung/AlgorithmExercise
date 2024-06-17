@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
@@ -68,7 +70,7 @@ public class MapGraph
 
   /**
    * The getNodeNumber method returns the node number of the graph.
-   * @return the number of nodes.
+   * @return the number of node.
    */
   public int getNodeNumber()
   {

@@ -1,3 +1,4 @@
+package tree;
 import java.util.*;
 
 /**
@@ -78,7 +79,7 @@ public class ArrayHeapTree
    * @param x The value to add.
    * @return true.
    */
-  boolean add(int x)
+  public boolean add(int x)
   {
     // Add x at the end of the array list
     arrayHeap.add(x);

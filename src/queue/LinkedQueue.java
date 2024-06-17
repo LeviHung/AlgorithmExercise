@@ -1,3 +1,4 @@
+package queue;
 
 /**
  * Linked Queue Class
