@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import algorithm.FindMatchingPair;
 import algorithm.MergeSortedArrays;
 import algorithm.CommonItems;
+import algorithm.ReverseString;
 import array.MyObjArray;
 import hashtable.ArrayListHashTable;
 import linkedlist.LinkedList;
@@ -240,7 +241,7 @@ public class Main {
           buildMyObjArray();
           break;
         case 6:
-          String revString = reverseString(usrString);
+          String revString = ReverseString.reverseString(usrString);
           System.out.println("The user string is    " + usrString);
           System.out.println("The reverse string is " + revString);
           break;
@@ -601,55 +602,7 @@ public class Main {
     System.out.println(myArray.toString());
   }
 
-  /**
-   * The reverseString function
-   * time complexity of O(b) - linear
-   * space complexity of O(a) - linear
-   * @param str - the user string
-   * @return A reverse string
-   */
-  public static String reverseString(String str)
-  {
-    if (str == null || !(str instanceof String)) {
-      System.out.println("The string is null or it is not a string type");
-      return null;
-    }
 
-    char [] revStrArray = new char[str.length()];
-    int idxItems = str.length() - 1;
-    for (int i = idxItems, j = 0; i >= 0; i--, j++) {
-      revStrArray[j] = str.charAt(i);
-    }
-
-    StringBuilder revStr = new StringBuilder();
-    revStr.append(revStrArray); 
-    return revStr.toString();
-  }
-
-  /**
-   * Other functions for reversing string from nimrod46 on GitHub.
-   */
-  public static String ReverseString(String string) 
-  {
-    String result = "";
-    final int length = string.length();
-    for (int i = length - 1; i >= 0; i--) {
-      result += string.charAt(i);
-    }
-    return result;
-  }
-
-  public static String ReverseStringWithReelJava(String string) 
-  {
-    return new StringBuilder(string).reverse().toString();
-  }
-
-  public static String recursiveReversal (String str) 
-  {
-    if (str.length() == 0)  //breakpoint for recursion
-       return "";
-    return recursiveReversal(str.substring(1)) + str.charAt(0);
-  }
 
   /**
    * Create a MergeSortedArrays object and get the merged array by its method.
