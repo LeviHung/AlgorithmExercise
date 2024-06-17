@@ -133,6 +133,16 @@ import javax.swing.JFrame;
 //    4      20
 //  1   6  15  170
 
+// FUNCTION 13:
+// Design a graph that can add nodes, add edges, and show its connections.
+// For example: 
+// 3 --- 4 --- 5
+// |     |     |
+// |     |     |
+// 1 --- 2     6
+//  \   /
+//   \ /
+//    0
 
 public class Main {
   private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
@@ -357,6 +367,24 @@ public class Main {
           } while (subKey != 0);
           break;
 
+        case 13:
+          do {
+            displayGraphMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            switch (subKey) {
+              case 1:
+                buildGraph();;
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
+          break;
+
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -383,7 +411,8 @@ public class Main {
     System.out.println("9. Find the First Recurring Number");
     System.out.println("10. Build a Linked List");
     System.out.println("11. Build a Stack and Queue");
-    System.out.println("12. Build a tree");
+    System.out.println("12. Build a Tree");
+    System.out.println("13. Build a Graph");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -440,6 +469,15 @@ public class Main {
     System.out.println("1. Build a Binary Search Tree");
     System.out.println("2. Build an AVL Tree");
     System.out.println("3. Build an Array Heap Tree");
+    System.out.println("0. Exit");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }  
+
+  public static void displayGraphMenu()
+  {
+    System.out.println("\n--------------------------------------");
+    System.out.println("1. Build a Graph");
     System.out.println("0. Exit");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1205,5 +1243,41 @@ public class Main {
       System.out.print(x + "  ");       
     }
     System.out.println("");
+  }
+
+  public static void buildGraph()
+  {
+
+     MapGraph myGraph = new MapGraph();
+
+    //   3 --- 4 --- 5
+    //   |     |     |
+    //   |     |     |
+    //   1 --- 2     6
+    //    \   /
+    //     \ /
+    //      0
+
+     System.out.println("addNode(0), (1), (2), (3), (4), (5), (6)");
+     myGraph.addNode("0");
+     myGraph.addNode("1");
+     myGraph.addNode("2");
+     myGraph.addNode("3");
+     myGraph.addNode("4");
+     myGraph.addNode("5");
+     myGraph.addNode("6");
+     System.out.println("addEdge(3, 1), (3, 4), (4, 2), (4, 5)");
+     System.out.println("addEdge(1, 2), (1, 0), (0, 2), (6, 5)");
+     myGraph.addEdge("3", "1");
+     myGraph.addEdge("3", "4");
+     myGraph.addEdge("4", "2");
+     myGraph.addEdge("4", "5");
+     myGraph.addEdge("1", "2");
+     myGraph.addEdge("1", "0");
+     myGraph.addEdge("0", "2");
+     myGraph.addEdge("6", "5");
+
+     System.out.println("The graph:");
+     myGraph.showConnections();
   }
 }
