@@ -11,8 +11,9 @@ import java.util.stream.Stream;
 import java.util.Random;
 import javax.swing.JFrame;
 
-import algorithm.*;
+import algorithm.FindMatchingPair;
 import algorithm.MergeSortedArrays;
+import algorithm.CommonItems;
 import array.MyObjArray;
 import hashtable.ArrayListHashTable;
 import linkedlist.LinkedList;
@@ -209,15 +210,15 @@ public class Main {
                 Arrays.toString(cmpArray));
             switch (subKey) {
               case 1:
-                result = containCommonItemsByNaivety(usrArray, cmpArray);
+                result = CommonItems.containsByNaivety(usrArray, cmpArray);
                 System.out.println("The result is " + result);
                 break;
               case 2:
-                result = containCommonItemsByHashSet(usrArray, cmpArray);
+                result = CommonItems.containsByHashSet(usrArray, cmpArray);
                 System.out.println("The result is " + result);
                 break;
               case 3:
-                result = containCommonItemsByMethods(usrArray, cmpArray);
+                result = CommonItems.containsByMethods(usrArray, cmpArray);
                 System.out.println("The result is " + result);
                 break;
               default:
@@ -571,75 +572,6 @@ public class Main {
   }
 
   /**
-  * A "naive" approach for solving the question, with
-  * time complexity of O(a * b) - exponential
-  * space complexity of O(1) - constant.
-  * @param array1 the first input array.
-  * @param array2 the second input array.
-  * @return A boolean indicating whether two arrays have any common items.
-  */
-  public static boolean containCommonItemsByNaivety(Object [] array1, Object [] array2)
-  {
-    //boolean result = false;
-    for (int i = 0; i < array1.length; i++) {
-      for (int j = 0; j < array2.length; j++) {
-        if (Objects.equals(array1[i], array2[j])) {
-          // BugFix: If the object of the array is null, it will throw a NullPointerException.
-          //if (array1[i].equals(array2[j])) {
-
-          // Modified: Use return immediately instead of setting result variable.
-          //result = true;
-          return true;
-        }
-      }
-    }
-    return false;
-    //return result;
-  }
-
-  /**
-  * Use Hash Set method to check whether the two arrays have common items.
-  * time complexity of O(b) - linear
-  * space complexity of O(a) - linear
-  * @param array1 the first input array.
-  * @param array2 the second input array.
-  * @return A boolean indicating whether two arrays have any common items.
-  */
-  public static boolean containCommonItemsByHashSet(Object [] array1, Object [] array2)
-  {
-    HashSet<Object> mapArray1 = new HashSet<>();
-
-    // loop through first array and create a hash set, 
-    // where keys are the items in the array
-    for (int i = 0; i < array1.length; i++) {
-      mapArray1.add(array1[i]);
-    }
-
-    // loop through the second array and check if the item in second array
-    // exists in the hash set. 
-    for (int j = 0; j < array2.length; j++) {
-      if (mapArray1.contains(array2[j])) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  /**
-   * A better and cleaner solution which use a Hast set and Stream method.
-   * time complexity of O(b) - linear
-   * space complexity of O(a) - linear
-   * @param array1 - the first input array
-   * @param array2 - the second input array
-   * @return A boolean indicating whether those two arrays have any common items
-   */
-  public static boolean containCommonItemsByMethods(Object [] array1, Object [] array2)
-  {
-    HashSet<Object> mapArray1 = new HashSet<>(Arrays.asList(array1));
-    return Stream.of(array2).anyMatch(mapArray1::contains);
-  }
-
-  /**
    * Create a FindMatchingPair object and get the result and matching pair by calling 
    * its method.
    * time complexity of O(b) - linear
@@ -736,7 +668,7 @@ public class Main {
 
   public static void buildHashTable()
   {
-    MyArrayListHashTable myHashTable = new MyArrayListHashTable(50);
+    ArrayListHashTable myHashTable = new ArrayListHashTable(50);
     //MyHashTable myHashTable = new MyHashTable(50);
 
     myHashTable.set("grapes", 10000);
@@ -763,7 +695,7 @@ public class Main {
    */
   public static int findFirstRecurringNumber(int [] array)
   {
-    MyArrayListHashTable myHashTable = new MyArrayListHashTable(array.length);
+    ArrayListHashTable myHashTable = new ArrayListHashTable(array.length);
 
     for (int i = 0; i < array.length; i++) {
       if (myHashTable.get(Integer.toString(array[i])) == 0) {
