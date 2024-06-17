@@ -29,16 +29,16 @@ import tree.BinarySearchTree;
 import tree.AVLTree;
 import tree.ArrayHeapTree;
 
-// FUNCTION 1:
+// FUNCTION 1-1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
 // ANS: It depends on anotherFunction function. If there is not a function
 // in the funChallege, the big O will be O(n);
 
-// FUNCTION 2:
+// FUNCTION 1-2:
 // Check the executive time for the Recursive Fibonacci method. 
 
-// FUNCTION 3:
+// FUNCTION 1-3:
 /* Given 2 arrays, create a function that lets a user know (true/false)
   whether these two arrays contain any common items
   For Example:
@@ -53,7 +53,7 @@ import tree.ArrayHeapTree;
   return true or false
 */
 
-// FUNCTION 4:
+// FUNCTION 1-4:
 /* Given a collection of numbers and find a matching pair that is equal to
   a sum.
   For example:
@@ -64,7 +64,7 @@ import tree.ArrayHeapTree;
   should return true, the matching pair is 4 and 4.
 */
 
-// FUNCTION 5:
+// FUNCTION 2:
 /* Design a array class that can store objects and 
  * has the methods related to array operations.
    For exampe:
@@ -73,14 +73,14 @@ import tree.ArrayHeapTree;
    thismyArray should show "Hi, there"
 */
 
-// FUNCTION 6:
+// FUNCTION 1-5:
 /* Given a string and reverse the string to return it.
    For example:
    str = "Hi, I am Levi Hung."
    The function should return a string ".gnuH iveL ma I ,iH"
 */
 
-//FUNCTION 7:
+//FUNCTION 1-6:
 /* Given two sorted arrays consisting of integer numbers and 
  * merge them to return an array.
   For example:
@@ -89,7 +89,7 @@ import tree.ArrayHeapTree;
   The function should return [0, 3, 4, 6, 30, 31].
 */
 
-//FUNCTION 8:
+//FUNCTION 3:
 // Design a hash table class that can store keys and values.
 // it also has some methods related to hash table operations.
 // For exampe:
@@ -99,7 +99,7 @@ import tree.ArrayHeapTree;
 // thisHashTable.get("oranges") should return 10000, 
 // thisHashTable.keys() should return an array with "grapes", "apples", and "oranges"
 
-//FUNCTION 9:
+//FUNCTION 1-7-1:
 // First Recurring number.
 // This function finds the first recurring number from an integer array by using
 // a array list hash table.
@@ -111,23 +111,23 @@ import tree.ArrayHeapTree;
 // Given an array = [2, 3, 4, 5]:
 // It should return 0.
 
-// FUNCTION 9-2:
+// FUNCTION 1-7-2:
 // Find the first recurring number by looping through the array
 // and fix the problem. 
 // For example:
 // Given an array = [2, 5, 5, 2, 3, 5, 1, 2, 4]:
 // It should return 5, but looping through will return 2.
 
-// FUNCTION 10:
+// FUNCTION 4-1:
 // Design a linked list class that can store integers.
 // For example:
 // 10 -> 5 -> 16 -> null
 
-// FUNCTION 10-2:
+// FUNCTION 4-2:
 // Design a doubly linked list class.
 // null <- 10 <-> 5 <-> 16 -> null
 
-// FUNCTION 11:
+// FUNCTION 5:
 // Design a stack and queue class that can pop/push, enqueue/dequeue, and peek.
 // For example:
 // push("Google")
@@ -136,7 +136,7 @@ import tree.ArrayHeapTree;
 // peek(), it should return "Discord".
 // pop() and peek(), it should return "Udemy".
 
-// FUNCTION 12:
+// FUNCTION 6-1:
 // Design a tree, such as binary search tree that can insert, lookup, and remove.
 // For example:
 // insert(9)
@@ -151,7 +151,7 @@ import tree.ArrayHeapTree;
 //    4      20
 //  1   6  15  170
 
-// FUNCTION 13:
+// FUNCTION 6-2:
 // Design a graph that can add nodes, add edges, and show its connections.
 // For example: 
 // 3 --- 4 --- 5
@@ -182,141 +182,157 @@ public class AlgorithmExercise {
 
       switch (inputKey) {
         case 1:
-          firstExercise();
-          break;
-        case 2:
-          RecursiveFibonacciTimer();
-          break;
-        case 3:
           do {
-            Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
-            Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
-
-            displayContainCommonItemsMenu();
+            displayAlgorithmExerciseMenu();
             subKey = keyboard.nextInt();
             keyboard.nextLine();
-            System.out.println("The user array is " + 
-                Arrays.toString(usrArray));
-            System.out.println("The comp array is " + 
-                Arrays.toString(cmpArray));
             switch (subKey) {
               case 1:
-                result = CommonItems.containsByNaivety(usrArray, cmpArray);
-                System.out.println("The result is " + result);
+                firstExercise();;
                 break;
               case 2:
-                result = CommonItems.containsByHashSet(usrArray, cmpArray);
-                System.out.println("The result is " + result);
+                RecursiveFibonacciTimer();
                 break;
               case 3:
-                result = CommonItems.containsByMethods(usrArray, cmpArray);
+                do {
+                  Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
+                  Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
+
+                  displayContainCommonItemsMenu();
+                  subKey = keyboard.nextInt();
+                  keyboard.nextLine();
+                  System.out.println("The user array is " + 
+                      Arrays.toString(usrArray));
+                  System.out.println("The comp array is " + 
+                      Arrays.toString(cmpArray));
+                  switch (subKey) {
+                    case 1:
+                      result = CommonItems.containsByNaivety(usrArray, cmpArray);
+                      System.out.println("The result is " + result);
+                      break;
+                    case 2:
+                      result = CommonItems.containsByHashSet(usrArray, cmpArray);
+                      System.out.println("The result is " + result);
+                      break;
+                    case 3:
+                      result = CommonItems.containsByMethods(usrArray, cmpArray);
+                      System.out.println("The result is " + result);
+                      break;
+                    default:
+                      if (subKey != 0) {
+                        System.out.println("Invalid Input!");
+                      }
+                      break;
+                  } 
+                } while (subKey != 0);
+                break;
+              case 4:
+                int [] colArray = {1, 2, 3, 4, 4, 5};
+                int targetSum = 8;
+
+                System.out.println("The integer array is " + 
+                                    Arrays.toString(colArray));
+                System.out.println("The sum is " + targetSum);
+                result = findMatchingPair(colArray, targetSum);
                 System.out.println("The result is " + result);
                 break;
-              default:
-                if (subKey != 0) {
-                  System.out.println("Invalid Input!");
-                }
+              case 5:
+                String usrString = "Hi, I am Levi Hung.";
+
+                String revString = ReverseString.reverseString(usrString);
+                System.out.println("The user string is    " + usrString);
+                System.out.println("The reverse string is " + revString);
                 break;
-            } 
-          }while (subKey != 0);
-          break;
-        case 4:
-          int [] colArray = {1, 2, 3, 4, 4, 5};
-          int targetSum = 8;
+              case 6:
+                int [] usrSortedArray2 = {0, 3, 4, 31};
+                int [] usrSortedArray1 = {4, 6, 30};
 
-          System.out.println("The integer array is " + 
-                              Arrays.toString(colArray));
-          System.out.println("The sum is " + targetSum);
-          result = findMatchingPair(colArray, targetSum);
-          System.out.println("The result is " + result);
-          break;
-        case 5:
-          buildMyObjArray();
-          break;
-        case 6:
-          String usrString = "Hi, I am Levi Hung.";
+                int [] mergeArray = mergeSortedArray(usrSortedArray1, 
+                                                     usrSortedArray2);
+                System.out.println("The merge array is");
+                for (int i = 0; i < mergeArray.length; i++)
+                  System.out.println(i + ": " + mergeArray[i]);
 
-          String revString = ReverseString.reverseString(usrString);
-          System.out.println("The user string is    " + usrString);
-          System.out.println("The reverse string is " + revString);
-          break;
-        case 7:
-          int [] usrSortedArray2 = {0, 3, 4, 31};
-          int [] usrSortedArray1 = {4, 6, 30};
-
-          int [] mergeArray = mergeSortedArray(usrSortedArray1, usrSortedArray2);
-          System.out.println("The merge array is");
-          for (int i = 0; i < mergeArray.length; i++)
-            System.out.println(i + ": " + mergeArray[i]);
-          break;
-        case 8:
-          buildHashTable();
-          break;
-        case 9:
-          do {
-            int [] usrIntegerArray1 = {2, 5, 1, 2, 3, 5, 1, 2, 4};
-            int [] usrIntegerArray2 = {2, 1, 1, 2, 3, 5, 1, 2, 4};
-            int [] usrIntegerArray3 = {2, 3, 4, 5};
-            int [] usrIntegerArray4 = {2, 1, 5, 4, 2, 5, 1, 2, 4};
-            int [] usrIntegerArray5 = {2, 5, 5, 2, 3, 5, 1, 2, 4};
-            int [] usrIntegerArray6 = {2, 5, 4, 4, 5, 2, 1, 2, 4};
-
-            displayFirstRecurringNumberMenu();
-            subKey = keyboard.nextInt();
-            keyboard.nextLine();
-            System.out.println("The integer array is " + 
-                                Arrays.toString(usrIntegerArray1));
-            System.out.println("The integer array is " + 
-                                Arrays.toString(usrIntegerArray2));
-            System.out.println("The integer array is " + 
-                                Arrays.toString(usrIntegerArray3));
-            System.out.println("The integer array is " + 
-                                Arrays.toString(usrIntegerArray4));
-            System.out.println("The integer array is " + 
-                                Arrays.toString(usrIntegerArray5));
-            System.out.println("The integer array is " + 
-                                Arrays.toString(usrIntegerArray6));
-
-            switch (subKey) {
-              case 1:
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumber(usrIntegerArray1));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumber(usrIntegerArray2));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumber(usrIntegerArray3));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumber(usrIntegerArray4));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumber(usrIntegerArray5));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumber(usrIntegerArray6));
                 break;
-              case 2:
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumberByLoop(usrIntegerArray1));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumberByLoop(usrIntegerArray2));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumberByLoop(usrIntegerArray3));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumberByLoop(usrIntegerArray4));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumberByLoop(usrIntegerArray5));
-                System.out.println("The first recurring number is " +  
-                                   findFirstRecurringNumberByLoop(usrIntegerArray6));
+              case 7:
+                do {
+                  int [] usrIntegerArray1 = {2, 5, 1, 2, 3, 5, 1, 2, 4};
+                  int [] usrIntegerArray2 = {2, 1, 1, 2, 3, 5, 1, 2, 4};
+                  int [] usrIntegerArray3 = {2, 3, 4, 5};
+                  int [] usrIntegerArray4 = {2, 1, 5, 4, 2, 5, 1, 2, 4};
+                  int [] usrIntegerArray5 = {2, 5, 5, 2, 3, 5, 1, 2, 4};
+                  int [] usrIntegerArray6 = {2, 5, 4, 4, 5, 2, 1, 2, 4};
 
+                  displayFirstRecurringNumberMenu();
+                  subKey = keyboard.nextInt();
+                  keyboard.nextLine();
+                  System.out.println("The integer array is " + 
+                                      Arrays.toString(usrIntegerArray1));
+                  System.out.println("The integer array is " + 
+                                      Arrays.toString(usrIntegerArray2));
+                  System.out.println("The integer array is " + 
+                                      Arrays.toString(usrIntegerArray3));
+                  System.out.println("The integer array is " + 
+                                      Arrays.toString(usrIntegerArray4));
+                  System.out.println("The integer array is " + 
+                                      Arrays.toString(usrIntegerArray5));
+                  System.out.println("The integer array is " + 
+                                      Arrays.toString(usrIntegerArray6));
+
+                  switch (subKey) {
+                    case 1:
+                      System.out.println("The first recurring number is " +  
+                                findFirstRecurringNumber(usrIntegerArray1));
+                      System.out.println("The first recurring number is " +  
+                                findFirstRecurringNumber(usrIntegerArray2));
+                      System.out.println("The first recurring number is " +  
+                                findFirstRecurringNumber(usrIntegerArray3));
+                      System.out.println("The first recurring number is " +  
+                                findFirstRecurringNumber(usrIntegerArray4));
+                      System.out.println("The first recurring number is " +  
+                                findFirstRecurringNumber(usrIntegerArray5));
+                      System.out.println("The first recurring number is " +  
+                                findFirstRecurringNumber(usrIntegerArray6));
+                      break;
+                    case 2:
+                      System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumberByLoop(usrIntegerArray1));
+                      System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumberByLoop(usrIntegerArray2));
+                      System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumberByLoop(usrIntegerArray3));
+                      System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumberByLoop(usrIntegerArray4));
+                      System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumberByLoop(usrIntegerArray5));
+                      System.out.println("The first recurring number is " +  
+                             findFirstRecurringNumberByLoop(usrIntegerArray6));
+                      break;
+                    default:
+                      if (subKey != 0) {
+                        System.out.println("Invalid Input!");
+                      }
+                      break;
+                  } 
+                } while (subKey != 0);
+                break;
+              case 8:
                 break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
                 }
                 break;
-            } 
+            }
           } while (subKey != 0);
           break;
-
-        case 10:
+        case 2:
+          buildMyObjArray();
+          break;
+        case 3:
+          buildHashTable();
+          break;
+        case 4:
           do {
             displayLinkedListMenu();
             subKey = keyboard.nextInt();
@@ -336,8 +352,7 @@ public class AlgorithmExercise {
             }
           } while (subKey != 0);
           break;
-
-        case 11:
+        case 5:
           do {
             displayStackQueueMenu();
             subKey = keyboard.nextInt();
@@ -366,7 +381,7 @@ public class AlgorithmExercise {
             }
           } while (subKey != 0);
           break;
-        case 12:
+        case 6:
           do {
             displayTreeMenu();
             subKey = keyboard.nextInt();
@@ -380,6 +395,8 @@ public class AlgorithmExercise {
                 break;
               case 3:
                 buildArrayHeapTree();;
+              case 4:
+                buildGraph();
                 break;
               default:
                 if (subKey != 0) {
@@ -389,25 +406,6 @@ public class AlgorithmExercise {
             }
           } while (subKey != 0);
           break;
-
-        case 13:
-          do {
-            displayGraphMenu();
-            subKey = keyboard.nextInt();
-            keyboard.nextLine();
-            switch (subKey) {
-              case 1:
-                buildGraph();;
-                break;
-              default:
-                if (subKey != 0) {
-                  System.out.println("Invalid Input!");
-                }
-                break;
-            }
-          } while (subKey != 0);
-          break;
-
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -422,52 +420,60 @@ public class AlgorithmExercise {
     */
   public static void displayMenu()
   {
-    System.out.println("\n======================================");
-    System.out.println("1. First Algorthm Exercise");
-    System.out.println("2. Recursive Fibonacci Timer");
-    System.out.println("3. Contain Common Items");
-    System.out.println("4. Find Matching Pair with Sum");
-    System.out.println("5. Build a Object Array");
-    System.out.println("6. Reverse String");
-    System.out.println("7. Merge Two Sorted Arrays");
-    System.out.println("8. Build a Hash Table");
-    System.out.println("9. Find the First Recurring Number");
-    System.out.println("10. Build a Linked List");
-    System.out.println("11. Build a Stack and Queue");
-    System.out.println("12. Build a Tree");
-    System.out.println("13. Build a Graph");
+    System.out.println("\n=========== Main Menu ================");
+    System.out.println("1. Basic Algorithm Exercise");
+    System.out.println("2. Build an Array");
+    System.out.println("3. Build a Hash Table");
+    System.out.println("4. Build a Linked List");
+    System.out.println("5. Build a Stack and Queue");
+    System.out.println("6. Build a Tree and Graph");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
   }
 
+  public static void displayAlgorithmExerciseMenu()
+  {
+    System.out.println("\n----- Basic Algorithm Exercise -------");
+    System.out.println("1. First Exercise");
+    System.out.println("2. Recursive Fibonacci Timer");
+    System.out.println("3. Contain Common Items");
+    System.out.println("4. Find Matching Pair with Sum");
+    System.out.println("5. Reverse String");
+    System.out.println("6. Merge Two Sorted Arrays");
+    System.out.println("7. Find the First Recurring Number");
+    System.out.println("0. Go Back");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }
+
   public static void displayContainCommonItemsMenu()
   {
-    System.out.println("\n--------------------------------------");
+    System.out.println("\n----- Contain Common Items -----------");
     System.out.println("1. Contain Common Items By Naivety");
     System.out.println("2. Contain Common Items By Hash Set");
     System.out.println("3. Contain Common Items By Methods");
-    System.out.println("0. Exit");
+    System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayFirstRecurringNumberMenu()
   {
-    System.out.println("\n--------------------------------------");
+    System.out.println("\n----- First Recurring Number ---------");
     System.out.println("1. Find the First Recurring Number");
     System.out.println("2. Find the First Recurring Number by For Loop");
-    System.out.println("0. Exit");
+    System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayLinkedListMenu()
   {
-    System.out.println("\n--------------------------------------");
+    System.out.println("\n----- Build a Linked List ------------");
     System.out.println("1. Build a Linked List");
     System.out.println("2. Build a Doubly Linked List");
-    System.out.println("0. Exit");
+    System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
   }
@@ -475,33 +481,25 @@ public class AlgorithmExercise {
 
   public static void displayStackQueueMenu()
   {
-    System.out.println("\n--------------------------------------");
+    System.out.println("\n----- Build a Stack and Queue --------");
     System.out.println("1. Build a Linked Stack");
-    System.out.println("2. Build a Array Stack");
+    System.out.println("2. Build an Array Stack");
     System.out.println("3. Build a Linked Queue");
-    System.out.println("4. Build a Array Queue");
+    System.out.println("4. Build an Array Queue");
     System.out.println("5. Build a Stack Queue");
-    System.out.println("0. Exit");
+    System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayTreeMenu()
   {
-    System.out.println("\n--------------------------------------");
+    System.out.println("\n----- Build a Tree and Graph ---------");
     System.out.println("1. Build a Binary Search Tree");
     System.out.println("2. Build an AVL Tree");
     System.out.println("3. Build an Array Heap Tree");
-    System.out.println("0. Exit");
-    System.out.println("--------------------------------------");
-    System.out.print("Enter a choice: ");
-  }  
-
-  public static void displayGraphMenu()
-  {
-    System.out.println("\n--------------------------------------");
-    System.out.println("1. Build a Graph");
-    System.out.println("0. Exit");
+    System.out.println("4. Build Graph");
+    System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
   }  
