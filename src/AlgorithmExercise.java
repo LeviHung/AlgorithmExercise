@@ -162,20 +162,7 @@ import tree.ArrayHeapTree;
 //   \ /
 //    0
 
-public class Main {
-  private static Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
-  private static Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
-  private static int [] colArray = {1, 2, 3, 4, 4, 5};
-  private static int targetSum = 8;
-  private static String usrString = "Hi, I am Levi Hung.";
-  private static int [] usrSortedArray2 = {0, 3, 4, 31};
-  private static int [] usrSortedArray1 = {4, 6, 30};
-  private static int [] usrIntegerArray1 = {2, 5, 1, 2, 3, 5, 1, 2, 4};
-  private static int [] usrIntegerArray2 = {2, 1, 1, 2, 3, 5, 1, 2, 4};
-  private static int [] usrIntegerArray3 = {2, 3, 4, 5};
-  private static int [] usrIntegerArray4 = {2, 1, 5, 4, 2, 5, 1, 2, 4};
-  private static int [] usrIntegerArray5 = {2, 5, 5, 2, 3, 5, 1, 2, 4};
-  private static int [] usrIntegerArray6 = {2, 5, 4, 4, 5, 2, 1, 2, 4};
+public class AlgorithmExercise {
 
   public static void main(String[] args) {
     int inputKey;
@@ -202,6 +189,9 @@ public class Main {
           break;
         case 3:
           do {
+            Object [] usrArray = {'a', 4, "asdf", '7', 'r', null};
+            Object [] cmpArray = {'z', 3, new String("asd"), null, 'x'};
+
             displayContainCommonItemsMenu();
             subKey = keyboard.nextInt();
             keyboard.nextLine();
@@ -231,6 +221,9 @@ public class Main {
           }while (subKey != 0);
           break;
         case 4:
+          int [] colArray = {1, 2, 3, 4, 4, 5};
+          int targetSum = 8;
+
           System.out.println("The integer array is " + 
                               Arrays.toString(colArray));
           System.out.println("The sum is " + targetSum);
@@ -241,11 +234,16 @@ public class Main {
           buildMyObjArray();
           break;
         case 6:
+          String usrString = "Hi, I am Levi Hung.";
+
           String revString = ReverseString.reverseString(usrString);
           System.out.println("The user string is    " + usrString);
           System.out.println("The reverse string is " + revString);
           break;
         case 7:
+          int [] usrSortedArray2 = {0, 3, 4, 31};
+          int [] usrSortedArray1 = {4, 6, 30};
+
           int [] mergeArray = mergeSortedArray(usrSortedArray1, usrSortedArray2);
           System.out.println("The merge array is");
           for (int i = 0; i < mergeArray.length; i++)
@@ -256,6 +254,13 @@ public class Main {
           break;
         case 9:
           do {
+            int [] usrIntegerArray1 = {2, 5, 1, 2, 3, 5, 1, 2, 4};
+            int [] usrIntegerArray2 = {2, 1, 1, 2, 3, 5, 1, 2, 4};
+            int [] usrIntegerArray3 = {2, 3, 4, 5};
+            int [] usrIntegerArray4 = {2, 1, 5, 4, 2, 5, 1, 2, 4};
+            int [] usrIntegerArray5 = {2, 5, 5, 2, 3, 5, 1, 2, 4};
+            int [] usrIntegerArray6 = {2, 5, 4, 4, 5, 2, 1, 2, 4};
+
             displayFirstRecurringNumberMenu();
             subKey = keyboard.nextInt();
             keyboard.nextLine();
