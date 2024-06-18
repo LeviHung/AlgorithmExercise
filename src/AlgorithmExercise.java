@@ -176,6 +176,9 @@ import algorithm.Fibonacci;
 // the pattern of the sequence is that each value is the sum of the 2 
 // previous values, that means that for N = 5 -> 2 + 3.
 
+// FUNCTION 7-5
+// Reverse String With Recursion
+
 public class AlgorithmExercise {
 
   public static void main(String[] args) {
@@ -460,6 +463,15 @@ public class AlgorithmExercise {
                            "findFibonacciByIteration(" + input + ") = " + 
                            Fibonacci.findFibonacciByIteration(input));
 
+              case 5:
+                System.out.print("Enter a string: ");
+                String strInput = keyboard.nextLine();
+                //keyboard.nextLine();
+
+                System.out.println("Reverse string of \"" + strInput + "\" is ");
+                System.out.println("reverseByRecursion() = " + 
+                                  ReverseString.reverseByRecursion(strInput));
+
                 break;
               default:
                 if (subKey != 0) {
@@ -504,7 +516,7 @@ public class AlgorithmExercise {
     System.out.println("2. Recursive Fibonacci Timer");
     System.out.println("3. Contain Common Items");
     System.out.println("4. Find Matching Pair with Sum");
-    System.out.println("5. Reverse String");
+    System.out.println("5. Reverse String By Iteration");
     System.out.println("6. Merge Two Sorted Arrays");
     System.out.println("7. Find the First Recurring Number");
     System.out.println("0. Go Back");
@@ -576,6 +588,7 @@ public class AlgorithmExercise {
     System.out.println("2. Find Facotiral By Iteration");
     System.out.println("3. Find Fibonacci By Recursion");
     System.out.println("4. Find Fibonacci By Iteration");
+    System.out.println("5. Reverse String By Recursion");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");

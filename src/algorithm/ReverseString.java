@@ -47,10 +47,10 @@ public class ReverseString {
     return new StringBuilder(string).reverse().toString();
   }
 
-  public static String recursiveReversal (String str) 
+  public static String reverseByRecursion (String str) 
   {
     if (str.length() == 0)  //breakpoint for recursion
        return "";
-    return recursiveReversal(str.substring(1)) + str.charAt(0);
+    return reverseByRecursion(str.substring(1)) + str.charAt(0);
   }
 }
