@@ -29,6 +29,7 @@ import tree.BinarySearchTree;
 import tree.AVLTree;
 import tree.ArrayHeapTree;
 
+import algorithm.Factorial;
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
@@ -161,6 +162,10 @@ import tree.ArrayHeapTree;
 //  \   /
 //   \ /
 //    0
+
+// FUNCTION 7-1
+// Write two functions that finds the factorial of any number. One should use 
+// recursive, the other should jus use a for loop.
 
 public class AlgorithmExercise {
 
@@ -406,6 +411,32 @@ public class AlgorithmExercise {
             }
           } while (subKey != 0);
           break;
+        case 7:
+          do {
+            displayRecursionMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            switch (subKey) {
+              case 1:
+                System.out.println("The Factorial of 5 is " +
+                                   "findFactorialByRecursion(5) = " + 
+                                   Factorial.findFactorialByRecursion(5));
+                break;
+              case 2:
+                System.out.println("The Factorial of 5 is " + 
+                                   "findFactorialByIteration(5) = " + 
+                                   Factorial.findFactorialByIteration(5));
+
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
+          break;
+
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -427,6 +458,7 @@ public class AlgorithmExercise {
     System.out.println("4. Build a Linked List");
     System.out.println("5. Build a Stack and Queue");
     System.out.println("6. Build a Tree and Graph");
+    System.out.println("7. Algorithm Recursion");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -499,6 +531,16 @@ public class AlgorithmExercise {
     System.out.println("2. Build an AVL Tree");
     System.out.println("3. Build an Array Heap Tree");
     System.out.println("4. Build Graph");
+    System.out.println("0. Go Back");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }  
+
+  public static void displayRecursionMenu()
+  {
+    System.out.println("\n----- Algorithm Recursion ------------");
+    System.out.println("1. Find Factorial By Recursion");
+    System.out.println("2. Find Facotiral By Iteration");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
