@@ -16,9 +16,9 @@ public class Fibonacci {
     int value = 0;
     int preValue = 0;
     int tmp = 0;
-    for (int i = 2; i <= n; i++) {
-      if (i == 2) {
-        preValue = 1;
+    for (int i = 1; i <= n; i++) {
+      if (i == 1) {
+        preValue = 0;
         value = 1;
 
       } else {							// 3	4	 5

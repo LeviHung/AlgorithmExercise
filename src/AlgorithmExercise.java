@@ -425,26 +425,40 @@ public class AlgorithmExercise {
             displayRecursionMenu();
             subKey = keyboard.nextInt();
             keyboard.nextLine();
+            int input = 0;
+
             switch (subKey) {
               case 1:
-                System.out.println("The Factorial of 5 is " +
-                                   "findFactorial(5) = " + 
-                                   Factorial.findFactorial(5));
+                System.out.print("Enter a integer: ");
+                input = keyboard.nextInt();
+
+                System.out.println("The Factorial of " + input + " is " +
+                                   "findFactorial(" + input + ") = " + 
+                                   Factorial.findFactorial(input));
                 break;
               case 2:
-                System.out.println("The Factorial of 5 is " + 
-                                   "findFactorialByIteration(5) = " + 
-                                   Factorial.findFactorialByIteration(5));
+                System.out.print("Enter a integer: ");
+                input = keyboard.nextInt();
+
+                System.out.println("The Factorial of " + input + " is " +
+                           "findFactorialByIteration(" + input + ") = " + 
+                           Factorial.findFactorialByIteration(input));
                 break;
               case 3:
-                System.out.println("The Fibonacci of 8 is " +
-                                   "findFibonacci(8) = " + 
-                                   Fibonacci.findFibonacci(8));
+                System.out.print("Enter a integer: ");
+                input = keyboard.nextInt();
+
+                System.out.println("The Fibonacci of " + input + " is " +
+                                   "findFibonacci(" + input + ") = " + 
+                                   Fibonacci.findFibonacci(input));
                 break;
               case 4:
-                System.out.println("The Fibonacci of 8 is " + 
-                                   "findFibonacciByIteration(8) = " + 
-                                   Fibonacci.findFibonacciByIteration(8));
+                System.out.print("Enter a integer: ");
+                input = keyboard.nextInt();
+
+                System.out.println("The Fibonacci of " + input + " is " +
+                           "findFibonacciByIteration(" + input + ") = " + 
+                           Fibonacci.findFibonacciByIteration(input));
 
                 break;
               default:
