@@ -5,11 +5,14 @@
 import java.util.Scanner;
 import java.util.Objects;
 import java.util.HashSet;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.Stream;
 import java.util.Random;
 import javax.swing.JFrame;
+import java.util.Comparator;
 
 import algorithm.FindMatchingPair;
 import algorithm.MergeSortedArrays;
@@ -31,7 +34,7 @@ import tree.ArrayHeapTree;
 
 import algorithm.Factorial;
 import algorithm.Fibonacci;
-
+import algorithm.NaturalOrderComparator;
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
@@ -178,6 +181,9 @@ import algorithm.Fibonacci;
 
 // FUNCTION 7-5
 // Reverse String With Recursion
+
+// FUNCTION 8-1
+// Sorting arrays by built-in functions.
 
 public class AlgorithmExercise {
 
@@ -482,6 +488,24 @@ public class AlgorithmExercise {
           } while (subKey != 0);
           break;
 
+        case 8:
+          do {
+            displaySortingMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            switch (subKey) {
+              case 1:
+                SortingByBuiltinFunction();
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
+          break;
+
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -504,6 +528,7 @@ public class AlgorithmExercise {
     System.out.println("5. Build a Stack and Queue");
     System.out.println("6. Build a Tree and Graph");
     System.out.println("7. Algorithm Recursion");
+    System.out.println("8. Algorithm Sorting");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -589,6 +614,15 @@ public class AlgorithmExercise {
     System.out.println("3. Find Fibonacci By Recursion");
     System.out.println("4. Find Fibonacci By Iteration");
     System.out.println("5. Reverse String By Recursion");
+    System.out.println("0. Go Back");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }  
+
+  public static void displaySortingMenu()
+  {
+    System.out.println("\n----- Algorithm Sorting --------------");
+    System.out.println("1. Sorting By Built-in Function");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1273,5 +1307,63 @@ public class AlgorithmExercise {
 
      System.out.println("The graph:");
      myGraph.showConnections();
+  }
+
+  public static void SortingByBuiltinFunction()
+  {
+    String [] stringArray = {"Blue", "Humpback", "Belugo"};
+    int [] numberArray = {40, 1, 5, 200};
+    String [] numericStringArray = {"80", "9", "700"};
+
+    System.out.print("stringArray = ");
+    for (String str: stringArray) {
+      System.out.print(str + " ");
+    }  	
+    System.out.println("");
+
+    Arrays.sort(stringArray);
+    System.out.print("sort(stringArray) = ");
+    for (String str: stringArray) {
+      System.out.print(str + " ");
+    }
+    System.out.println("");
+
+    System.out.print("numberArray = ");
+    for (int num: numberArray) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
+    Arrays.sort(numberArray);
+    System.out.print("sort(numberArray) = ");
+    for (int num: numberArray) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
+
+    System.out.print("numericStringArray = ");
+    for (String str: numericStringArray) {
+      System.out.print(str + " ");
+    }
+    System.out.println("");
+
+    Arrays.sort(numericStringArray);
+    System.out.print("sort(numericStringArray) without compare = ");
+    for (String str: numericStringArray) {
+      System.out.print(str + " ");
+    }
+    System.out.println("");
+
+
+    System.out.println("sort(numericStringArray) with NaturalOrderComparator:");
+    List<String> orig = Arrays.asList(numericStringArray);
+
+    System.out.println("Original = " + orig);
+
+    // This file uses unchecked or unsafe operations.
+    //Collections.sort(orig, new NaturalOrderComparator());
+
+    System.out.println("Sorted =   " + orig + " (Must unmark unsafe code)");
   }
 }
