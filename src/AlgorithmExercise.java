@@ -30,6 +30,8 @@ import tree.AVLTree;
 import tree.ArrayHeapTree;
 
 import algorithm.Factorial;
+import algorithm.Fibonacci;
+
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
@@ -166,6 +168,13 @@ import algorithm.Factorial;
 // FUNCTION 7-1
 // Write two functions that finds the factorial of any number. One should use 
 // recursive, the other should jus use a for loop.
+
+// FUNCTION 7-3
+// Given a number N return the index value of the Fibonacci sequence, 
+// where the sequence is:
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+// the pattern of the sequence is that each value is the sum of the 2 
+// previous values, that means that for N = 5 -> 2 + 3.
 
 public class AlgorithmExercise {
 
@@ -419,13 +428,23 @@ public class AlgorithmExercise {
             switch (subKey) {
               case 1:
                 System.out.println("The Factorial of 5 is " +
-                                   "findFactorialByRecursion(5) = " + 
-                                   Factorial.findFactorialByRecursion(5));
+                                   "findFactorial(5) = " + 
+                                   Factorial.findFactorial(5));
                 break;
               case 2:
                 System.out.println("The Factorial of 5 is " + 
                                    "findFactorialByIteration(5) = " + 
                                    Factorial.findFactorialByIteration(5));
+                break;
+              case 3:
+                System.out.println("The Fibonacci of 8 is " +
+                                   "findFibonacci(8) = " + 
+                                   Fibonacci.findFibonacci(8));
+                break;
+              case 4:
+                System.out.println("The Fibonacci of 8 is " + 
+                                   "findFibonacciByIteration(8) = " + 
+                                   Fibonacci.findFibonacciByIteration(8));
 
                 break;
               default:
@@ -541,6 +560,8 @@ public class AlgorithmExercise {
     System.out.println("\n----- Algorithm Recursion ------------");
     System.out.println("1. Find Factorial By Recursion");
     System.out.println("2. Find Facotiral By Iteration");
+    System.out.println("3. Find Fibonacci By Recursion");
+    System.out.println("4. Find Fibonacci By Iteration");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");

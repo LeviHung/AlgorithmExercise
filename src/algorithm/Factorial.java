@@ -2,13 +2,13 @@ package algorithm;
 
 public class Factorial {
 
-  public static int findFactorialByRecursion(int number)
+  public static int findFactorial(int number)
   {
     if (number <= 1) {
       return 1;
     }
 
-    return number * findFactorialByRecursion(number - 1);
+    return number * findFactorial(number - 1);
   }
 
   public static int findFactorialByIteration(int number)
