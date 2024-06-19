@@ -37,6 +37,7 @@ import algorithm.Fibonacci;
 import algorithm.NaturalOrderComparator;
 import algorithm.BubbleSort;
 import algorithm.SelectionSort;
+import algorithm.InsertionSort;
 
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
@@ -518,6 +519,9 @@ public class AlgorithmExercise {
               case 3:
                 sortBySelectionSort();
                 break;
+              case 4:
+                sortByInsertionSort();
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -646,6 +650,7 @@ public class AlgorithmExercise {
     System.out.println("1. Sort By Built-in Function");
     System.out.println("2. Sort By Bubble Sort");
     System.out.println("3. Sort By Selection Sort");
+    System.out.println("4. Sort By Insertion Sort");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1421,6 +1426,25 @@ public class AlgorithmExercise {
 
     SelectionSort.sort(number);
     System.out.print("SelectionSort.sort(number) = ");
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+  }
+
+  public static void sortByInsertionSort()
+  {
+    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
+
+    System.out.print("Original number array =      ");
+
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
+    InsertionSort.sort(number);
+    System.out.print("InsertionSort.sort(number) = ");
     for (int num: number) {
       System.out.print(num + " ");
     }
