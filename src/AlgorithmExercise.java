@@ -38,6 +38,7 @@ import algorithm.NaturalOrderComparator;
 import algorithm.BubbleSort;
 import algorithm.SelectionSort;
 import algorithm.InsertionSort;
+import algorithm.MergeSort;
 
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
@@ -197,6 +198,18 @@ import algorithm.InsertionSort;
 
 //FUNCTION 8-3
 //Sort an integer array by using Selection Sort.
+//For example:
+//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+
+//FUNCTION 8-4
+//Sort an integer array by using Insertion Sort.
+//For example:
+//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+
+//FUNCTION 8-5
+//Sort an integer array by using Merge Sort.
 //For example:
 //numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 //sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
@@ -522,6 +535,9 @@ public class AlgorithmExercise {
               case 4:
                 sortByInsertionSort();
                 break;
+              case 5:
+                sortByMergeSort();
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -651,6 +667,7 @@ public class AlgorithmExercise {
     System.out.println("2. Sort By Bubble Sort");
     System.out.println("3. Sort By Selection Sort");
     System.out.println("4. Sort By Insertion Sort");
+    System.out.println("5. Sort By Merge Sort");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1445,6 +1462,25 @@ public class AlgorithmExercise {
 
     InsertionSort.sort(number);
     System.out.print("InsertionSort.sort(number) = ");
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+  }
+
+  public static void sortByMergeSort()
+  {
+    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
+
+    System.out.print("Original number array =  ");
+
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
+    MergeSort.sort(number);
+    System.out.print("MergeSort.sort(number) = ");
     for (int num: number) {
       System.out.print(num + " ");
     }
