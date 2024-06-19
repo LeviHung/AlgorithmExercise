@@ -35,6 +35,8 @@ import tree.ArrayHeapTree;
 import algorithm.Factorial;
 import algorithm.Fibonacci;
 import algorithm.NaturalOrderComparator;
+import algorithm.BubbleSort;
+
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
@@ -183,7 +185,13 @@ import algorithm.NaturalOrderComparator;
 // Reverse String With Recursion
 
 // FUNCTION 8-1
-// Sorting arrays by built-in functions.
+// Sort arrays by built-in functions.
+
+// FUNCTION 8-2
+// Sort an integer array by using Bubble Sort.
+// For example:
+// numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
 
 public class AlgorithmExercise {
 
@@ -495,7 +503,10 @@ public class AlgorithmExercise {
             keyboard.nextLine();
             switch (subKey) {
               case 1:
-                SortingByBuiltinFunction();
+                sortByBuiltinFunction();
+                break;
+              case 2:
+                sortByBubbleSort();
                 break;
               default:
                 if (subKey != 0) {
@@ -622,7 +633,8 @@ public class AlgorithmExercise {
   public static void displaySortingMenu()
   {
     System.out.println("\n----- Algorithm Sorting --------------");
-    System.out.println("1. Sorting By Built-in Function");
+    System.out.println("1. Sort By Built-in Function");
+    System.out.println("2. Sort By Bubble Sort");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1309,7 +1321,7 @@ public class AlgorithmExercise {
      myGraph.showConnections();
   }
 
-  public static void SortingByBuiltinFunction()
+  public static void sortByBuiltinFunction()
   {
     String [] stringArray = {"Blue", "Humpback", "Belugo"};
     int [] numberArray = {40, 1, 5, 200};
@@ -1355,7 +1367,6 @@ public class AlgorithmExercise {
     }
     System.out.println("");
 
-
     System.out.println("sort(numericStringArray) with NaturalOrderComparator:");
     List<String> orig = Arrays.asList(numericStringArray);
 
@@ -1365,5 +1376,25 @@ public class AlgorithmExercise {
     //Collections.sort(orig, new NaturalOrderComparator());
 
     System.out.println("Sorted =   " + orig + " (Must unmark unsafe code)");
+  }
+
+  public static void sortByBubbleSort()
+  {
+    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0};
+
+    System.out.print("Original number array =   ");
+
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
+    BubbleSort.sort(number);
+    System.out.print("BubbleSort.sort(number) = ");
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
   }
 }
