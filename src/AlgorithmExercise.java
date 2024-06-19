@@ -36,6 +36,7 @@ import algorithm.Factorial;
 import algorithm.Fibonacci;
 import algorithm.NaturalOrderComparator;
 import algorithm.BubbleSort;
+import algorithm.SelectionSort;
 
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
@@ -192,6 +193,12 @@ import algorithm.BubbleSort;
 // For example:
 // numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 // sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+
+//FUNCTION 8-3
+//Sort an integer array by using Selection Sort.
+//For example:
+//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
 
 public class AlgorithmExercise {
 
@@ -508,6 +515,9 @@ public class AlgorithmExercise {
               case 2:
                 sortByBubbleSort();
                 break;
+              case 3:
+                sortBySelectionSort();
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -635,6 +645,7 @@ public class AlgorithmExercise {
     System.out.println("\n----- Algorithm Sorting --------------");
     System.out.println("1. Sort By Built-in Function");
     System.out.println("2. Sort By Bubble Sort");
+    System.out.println("3. Sort By Selection Sort");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1395,6 +1406,24 @@ public class AlgorithmExercise {
       System.out.print(num + " ");
     }
     System.out.println("");
+  }
 
+  public static void sortBySelectionSort()
+  {
+    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
+
+    System.out.print("Original number array =      ");
+
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
+    SelectionSort.sort(number);
+    System.out.print("SelectionSort.sort(number) = ");
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
   }
 }
