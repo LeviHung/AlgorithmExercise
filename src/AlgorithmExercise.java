@@ -196,29 +196,35 @@ import algorithm.QuickSort;
 // numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 // sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
 
-//FUNCTION 8-3
-//Sort an integer array by using Selection Sort.
-//For example:
-//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+// FUNCTION 8-3
+// Sort an integer array by using Selection Sort.
+// For example:
+// numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
 
-//FUNCTION 8-4
-//Sort an integer array by using Insertion Sort.
-//For example:
-//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+// FUNCTION 8-4
+// Sort an integer array by using Insertion Sort.
+// For example:
+// numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
 
-//FUNCTION 8-5
-//Sort an integer array by using Merge Sort.
-//For example:
-//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+// FUNCTION 8-5
+// Sort an integer array by using Merge Sort.
+// For example:
+// numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
 
-//FUNCTION 8-6
-//Sort an integer array by using Quick Sort.
-//For example:
-//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+// FUNCTION 8-6
+// Sort an integer array by using Quick Sort.
+// For example:
+// numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+
+// FUNCTION 9-1
+// Search a binary search tree by using Breadth First Search.
+
+// FUNCTION 9-2
+// Search a binary search tree by using Depth First Search.
 
 public class AlgorithmExercise {
 
@@ -562,6 +568,28 @@ public class AlgorithmExercise {
           } while (subKey != 0);
           break;
 
+        case 9:
+          do {
+            displaySearchingMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            //SORT_TYPE type;
+            switch (subKey) {
+              case 1:
+                searchByBFS();
+                break;
+              case 2:
+                searchByDFS();
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
+          break;
+
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -585,6 +613,7 @@ public class AlgorithmExercise {
     System.out.println("6. Build a Tree and Graph");
     System.out.println("7. Algorithm Recursion");
     System.out.println("8. Algorithm Sorting");
+    System.out.println("9. Algorithm Searching");
     System.out.println("0. Exit");
     System.out.println("======================================");
     System.out.print("Enter a choice: ");
@@ -684,6 +713,16 @@ public class AlgorithmExercise {
     System.out.println("4. Sort By Insertion Sort");
     System.out.println("5. Sort By Merge Sort");
     System.out.println("6. Sort By Quick Sort");
+    System.out.println("0. Go Back");
+    System.out.println("--------------------------------------");
+    System.out.print("Enter a choice: ");
+  }  
+
+  public static void displaySearchingMenu()
+  {
+    System.out.println("\n----- Algorithm Searching ------------");
+    System.out.println("1. Search By Breadth First Search");
+    System.out.println("2. Search By Depth First Search");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1463,10 +1502,53 @@ public class AlgorithmExercise {
         System.out.println("Invalid type");
         break;    
     }
-    
+
     for (int num: number) {
       System.out.print(num + " ");
     }
     System.out.println("");
   }
+
+  public static void searchByBFS()
+  {
+    BinarySearchTree myTree = new BinarySearchTree();
+
+    System.out.println("insert(9), (4), (6), (20), (170), (15), (1)");
+    myTree.insert(9);
+    myTree.insert(4);
+    myTree.insert(6);
+    myTree.insert(20);
+    myTree.insert(170);
+    myTree.insert(15);
+    myTree.insert(1);
+
+    System.out.println("Breath first search by Iteration: " + 
+                       myTree.breathFirstSearch());
+    System.out.println("Breath first search by Recursion: " + 
+                       myTree.breathFirstSearchR());
+
+  } 
+
+  public static void searchByDFS()
+  {
+    BinarySearchTree myTree = new BinarySearchTree();
+
+    System.out.println("insert(9), (4), (6), (20), (170), (15), (1)");
+    myTree.insert(9);
+    myTree.insert(4);
+    myTree.insert(6);
+    myTree.insert(20);
+    myTree.insert(170);
+    myTree.insert(15);
+    myTree.insert(1);
+
+    System.out.println("Depth first search by Inorder:   " + 
+                       myTree.depthFirstSearchInorder());    
+    System.out.println("Depth first search by Preorder:  " + 
+                       myTree.depthFirstSearchPreorder());    
+    System.out.println("Depth first search by Postorder: " + 
+                       myTree.depthFirstSearchPostorder());    
+
+  }  
+
 }

@@ -1,6 +1,10 @@
 package tree;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * BinarySearchTree Class
@@ -243,5 +247,129 @@ public class BinarySearchTree extends BinaryTree
   public JPanel getView()
   {
     return new BTreeDisplay(root);       
+  }
+
+  /**
+   * The breathFirstSearcc method searchs the binary search tree by BFS. 
+   * @return list of the values of the tree by using BFS.
+   */
+  public List<Integer> breathFirstSearch() 
+  {
+    Node currentNode = root;
+    List<Integer> list = new ArrayList<>();
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(currentNode);
+
+    while (!queue.isEmpty()) {
+      currentNode = queue.poll();
+      list.add(currentNode.value);
+
+      if(currentNode.left != null) {
+        queue.add(currentNode.left);
+      }
+
+      if(currentNode.right != null) {
+        queue.add(currentNode.right);
+      }
+    }
+
+    return list;
+  }
+
+  public List<Integer> breathFirstSearchR() 
+  {
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(root);
+    return breathFirstSearchR(queue, new ArrayList<>());
+  }
+
+  private List<Integer> breathFirstSearchR(Queue<Node> queue, 
+                                           List<Integer> list) 
+  {
+    if (queue.isEmpty()) {
+      return list;
+    }
+
+    Node currentNode = queue.poll();
+    list.add(currentNode.value);
+
+    if (currentNode.left != null) {
+      queue.add(currentNode.left);
+    }
+
+    if (currentNode.right != null) {
+      queue.add(currentNode.right);
+    }
+
+    return breathFirstSearchR(queue, list);
+  }
+
+  /**
+   * The depthFirstSearchInorder method searchs the binary search tree 
+   * by DFS inorder. 
+   * @return list of the values of the tree by using DFS inorder.
+   */
+  public List<Integer> depthFirstSearchInorder()
+  {
+    List<Integer> list = new ArrayList<>();
+
+    depthFirstSearchInorder(root, list);
+
+    return list;
+  }
+
+  static void depthFirstSearchInorder(Node btree, List<Integer> list)
+  {
+    if (btree != null) {
+      depthFirstSearchInorder(btree.left, list);
+      list.add(btree.value);
+      depthFirstSearchInorder(btree.right, list);
+    }
+  }
+
+  /**
+   * The depthFirstSearchPreorder method searchs the binary search tree 
+   * by DFS preorder. 
+   * @return list of the values of the tree by using DFS preorder.
+   */
+  public List<Integer> depthFirstSearchPreorder()
+  {
+    List<Integer> list = new ArrayList<>();
+
+    depthFirstSearchPreorder(root, list);
+
+    return list;
+  }
+
+  static void depthFirstSearchPreorder(Node btree, List<Integer> list)
+  {
+    if (btree != null) {
+      list.add(btree.value);
+      depthFirstSearchPreorder(btree.left, list);
+      depthFirstSearchPreorder(btree.right, list);
+    }
+  }
+
+  /**
+   * The depthFirstSearchPostorder method searchs the binary search tree 
+   * by DFS postorder. 
+   * @return list of the values of the tree by using DFS postorder.
+   */
+  public List<Integer> depthFirstSearchPostorder()
+  {
+    List<Integer> list = new ArrayList<>();
+
+    depthFirstSearchPostorder(root, list);
+
+    return list;
+  }
+
+  static void depthFirstSearchPostorder(Node btree, List<Integer> list)
+  {
+    if (btree != null) {
+      depthFirstSearchPostorder(btree.left, list);
+      depthFirstSearchPostorder(btree.right, list);
+      list.add(btree.value);
+    }
   }
 }
