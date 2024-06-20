@@ -39,7 +39,7 @@ import algorithm.BubbleSort;
 import algorithm.SelectionSort;
 import algorithm.InsertionSort;
 import algorithm.MergeSort;
-
+import algorithm.QuickSort;
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
@@ -210,6 +210,12 @@ import algorithm.MergeSort;
 
 //FUNCTION 8-5
 //Sort an integer array by using Merge Sort.
+//For example:
+//numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+//sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
+
+//FUNCTION 8-6
+//Sort an integer array by using Quick Sort.
 //For example:
 //numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 //sorted  = [0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283];
@@ -538,6 +544,9 @@ public class AlgorithmExercise {
               case 5:
                 sortByMergeSort();
                 break;
+              case 6:
+                sortByQuickSort();
+                break;
               default:
                 if (subKey != 0) {
                   System.out.println("Invalid Input!");
@@ -668,6 +677,7 @@ public class AlgorithmExercise {
     System.out.println("3. Sort By Selection Sort");
     System.out.println("4. Sort By Insertion Sort");
     System.out.println("5. Sort By Merge Sort");
+    System.out.println("6. Sort By Quick Sort");
     System.out.println("0. Go Back");
     System.out.println("--------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1481,6 +1491,25 @@ public class AlgorithmExercise {
 
     MergeSort.sort(number);
     System.out.print("MergeSort.sort(number) = ");
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+  }
+
+  public static void sortByQuickSort()
+  {
+    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
+
+    System.out.print("Original number array =  ");
+
+    for (int num: number) {
+      System.out.print(num + " ");
+    }
+    System.out.println("");
+
+    QuickSort.sort(number);
+    System.out.print("QuickSort.sort(number) = ");
     for (int num: number) {
       System.out.print(num + " ");
     }
