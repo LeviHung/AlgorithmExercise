@@ -222,6 +222,11 @@ import algorithm.QuickSort;
 
 public class AlgorithmExercise {
 
+  public enum SORT_TYPE {
+    BUBBLE_SORT, SELECTION_SORT, INSERTION_SORT, 
+    MERGE_SORT, QUICK_SORT 
+  }
+
   public static void main(String[] args) {
     int inputKey;
     int subKey;
@@ -528,24 +533,25 @@ public class AlgorithmExercise {
             displaySortingMenu();
             subKey = keyboard.nextInt();
             keyboard.nextLine();
+            //SORT_TYPE type;
             switch (subKey) {
               case 1:
                 sortByBuiltinFunction();
                 break;
               case 2:
-                sortByBubbleSort();
+                sortIntegerArray(SORT_TYPE.BUBBLE_SORT);
                 break;
               case 3:
-                sortBySelectionSort();
+                sortIntegerArray(SORT_TYPE.SELECTION_SORT);
                 break;
               case 4:
-                sortByInsertionSort();
+                sortIntegerArray(SORT_TYPE.INSERTION_SORT);
                 break;
               case 5:
-                sortByMergeSort();
+                sortIntegerArray(SORT_TYPE.MERGE_SORT);
                 break;
               case 6:
-                sortByQuickSort();
+                sortIntegerArray(SORT_TYPE.QUICK_SORT);
                 break;
               default:
                 if (subKey != 0) {
@@ -1421,95 +1427,43 @@ public class AlgorithmExercise {
     System.out.println("Sorted =   " + orig + " (Must unmark unsafe code)");
   }
 
-  public static void sortByBubbleSort()
-  {
-    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0};
-
-    System.out.print("Original number array =   ");
-
-    for (int num: number) {
-      System.out.print(num + " ");
-    }
-    System.out.println("");
-
-    BubbleSort.sort(number);
-    System.out.print("BubbleSort.sort(number) = ");
-    for (int num: number) {
-      System.out.print(num + " ");
-    }
-    System.out.println("");
-  }
-
-  public static void sortBySelectionSort()
+  public static void sortIntegerArray(SORT_TYPE sortType)
   {
     int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
 
-    System.out.print("Original number array =      ");
+    System.out.print("Original array = ");
 
     for (int num: number) {
       System.out.print(num + " ");
     }
     System.out.println("");
 
-    SelectionSort.sort(number);
-    System.out.print("SelectionSort.sort(number) = ");
-    for (int num: number) {
-      System.out.print(num + " ");
+    switch (sortType) {
+      case BUBBLE_SORT:
+        BubbleSort.sort(number);
+        System.out.print("BubbleSort.sort() = ");
+        break;
+      case SELECTION_SORT:
+        SelectionSort.sort(number);
+        System.out.print("SelectionSort.sort() = ");
+        break;
+      case INSERTION_SORT:
+        InsertionSort.sort(number);
+        System.out.print("InsertionSort.sort() = ");
+        break;	
+      case MERGE_SORT:
+        MergeSort.sort(number);
+        System.out.print("MergeSort.sort() = ");
+        break;
+      case QUICK_SORT:
+        QuickSort.sort(number);
+        System.out.print("QuickSort.sort() = ");
+        break;
+      default:
+        System.out.println("Invalid type");
+        break;    
     }
-    System.out.println("");
-  }
-
-  public static void sortByInsertionSort()
-  {
-    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
-
-    System.out.print("Original number array =      ");
-
-    for (int num: number) {
-      System.out.print(num + " ");
-    }
-    System.out.println("");
-
-    InsertionSort.sort(number);
-    System.out.print("InsertionSort.sort(number) = ");
-    for (int num: number) {
-      System.out.print(num + " ");
-    }
-    System.out.println("");
-  }
-
-  public static void sortByMergeSort()
-  {
-    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
-
-    System.out.print("Original number array =  ");
-
-    for (int num: number) {
-      System.out.print(num + " ");
-    }
-    System.out.println("");
-
-    MergeSort.sort(number);
-    System.out.print("MergeSort.sort(number) = ");
-    for (int num: number) {
-      System.out.print(num + " ");
-    }
-    System.out.println("");
-  }
-
-  public static void sortByQuickSort()
-  {
-    int [] number = {99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0, 7};
-
-    System.out.print("Original number array =  ");
-
-    for (int num: number) {
-      System.out.print(num + " ");
-    }
-    System.out.println("");
-
-    QuickSort.sort(number);
-    System.out.print("QuickSort.sort(number) = ");
+    
     for (int num: number) {
       System.out.print(num + " ");
     }
