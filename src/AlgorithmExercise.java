@@ -604,24 +604,24 @@ public class AlgorithmExercise {
     */
   public static void displayMenu()
   {
-    System.out.println("\n=========== Main Menu ================");
-    System.out.println("1. Basic Algorithm Exercise");
-    System.out.println("2. Build an Array");
-    System.out.println("3. Build a Hash Table");
-    System.out.println("4. Build a Linked List");
-    System.out.println("5. Build a Stack and Queue");
-    System.out.println("6. Build a Tree and Graph");
-    System.out.println("7. Algorithm Recursion");
-    System.out.println("8. Algorithm Sorting");
-    System.out.println("9. Algorithm Searching");
+    System.out.println("\n============= Main Menu ================");
+    System.out.println("1. Algorithm - Basic Exercises");
+    System.out.println("2. Data Structure - Array");
+    System.out.println("3. Data Structure - Hash Table");
+    System.out.println("4. Data Structure - Linked List");
+    System.out.println("5. Data Structure - Stack and Queue");
+    System.out.println("6. Data Structure - Tree and Graph");
+    System.out.println("7. Algorithm - Recursion");
+    System.out.println("8. Algorithm - Sorting");
+    System.out.println("9. Algorithm - Searching");
     System.out.println("0. Exit");
-    System.out.println("======================================");
+    System.out.println("========================================");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayAlgorithmExerciseMenu()
   {
-    System.out.println("\n----- Basic Algorithm Exercise -------");
+    System.out.println("\n----- Algorithm - Basic Exercises ------");
     System.out.println("1. First Exercise");
     System.out.println("2. Recursive Fibonacci Timer");
     System.out.println("3. Contain Common Items");
@@ -630,83 +630,83 @@ public class AlgorithmExercise {
     System.out.println("6. Merge Two Sorted Arrays");
     System.out.println("7. Find the First Recurring Number");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayContainCommonItemsMenu()
   {
-    System.out.println("\n----- Contain Common Items -----------");
+    System.out.println("\n----- Contain Common Items -------------");
     System.out.println("1. Contain Common Items By Naivety");
     System.out.println("2. Contain Common Items By Hash Set");
     System.out.println("3. Contain Common Items By Methods");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayFirstRecurringNumberMenu()
   {
-    System.out.println("\n----- First Recurring Number ---------");
+    System.out.println("\n----- First Recurring Number -----------");
     System.out.println("1. Find the First Recurring Number");
     System.out.println("2. Find the First Recurring Number by For Loop");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayLinkedListMenu()
   {
-    System.out.println("\n----- Build a Linked List ------------");
+    System.out.println("\n----- Data Structure - Linked List -------");
     System.out.println("1. Build a Linked List");
     System.out.println("2. Build a Doubly Linked List");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("------------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
 
   public static void displayStackQueueMenu()
   {
-    System.out.println("\n----- Build a Stack and Queue --------");
+    System.out.println("\n----- Data Structure - Stack and Queue --");
     System.out.println("1. Build a Linked Stack");
     System.out.println("2. Build an Array Stack");
     System.out.println("3. Build a Linked Queue");
     System.out.println("4. Build an Array Queue");
     System.out.println("5. Build a Stack Queue");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }
 
   public static void displayTreeMenu()
   {
-    System.out.println("\n----- Build a Tree and Graph ---------");
+    System.out.println("\n----- Data Structure - Tree and Graph --");
     System.out.println("1. Build a Binary Search Tree");
     System.out.println("2. Build an AVL Tree");
     System.out.println("3. Build an Array Heap Tree");
     System.out.println("4. Build Graph");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }  
 
   public static void displayRecursionMenu()
   {
-    System.out.println("\n----- Algorithm Recursion ------------");
+    System.out.println("\n----- Algorithm Recursion --------------");
     System.out.println("1. Find Factorial By Recursion");
     System.out.println("2. Find Facotiral By Iteration");
     System.out.println("3. Find Fibonacci By Recursion");
     System.out.println("4. Find Fibonacci By Iteration");
     System.out.println("5. Reverse String By Recursion");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }  
 
   public static void displaySortingMenu()
   {
-    System.out.println("\n----- Algorithm Sorting --------------");
+    System.out.println("\n----- Algorithm Sorting ----------------");
     System.out.println("1. Sort By Built-in Function");
     System.out.println("2. Sort By Bubble Sort");
     System.out.println("3. Sort By Selection Sort");
@@ -714,17 +714,17 @@ public class AlgorithmExercise {
     System.out.println("5. Sort By Merge Sort");
     System.out.println("6. Sort By Quick Sort");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }  
 
   public static void displaySearchingMenu()
   {
-    System.out.println("\n----- Algorithm Searching ------------");
+    System.out.println("\n----- Algorithm Searching --------------");
     System.out.println("1. Search By Breadth First Search");
     System.out.println("2. Search By Depth First Search");
     System.out.println("0. Go Back");
-    System.out.println("--------------------------------------");
+    System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
   }  
 
