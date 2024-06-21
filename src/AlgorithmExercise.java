@@ -40,6 +40,7 @@ import algorithm.SelectionSort;
 import algorithm.InsertionSort;
 import algorithm.MergeSort;
 import algorithm.QuickSort;
+import algorithm.DynamicFibonacci;
 // FUNCTION 1-1:
 // What is the Big O of the below function? 
 // (Hint, you may want to go line by line)
@@ -225,6 +226,9 @@ import algorithm.QuickSort;
 
 // FUNCTION 9-2
 // Search a binary search tree by using Depth First Search.
+
+// FUNCTION 10-1
+// Use Dynamic Programming to find Fibonacci sequence.
 
 public class AlgorithmExercise {
 
@@ -589,7 +593,35 @@ public class AlgorithmExercise {
             }
           } while (subKey != 0);
           break;
+        case 10:
+          do {
+            displayDynamicProgrammingMenu();
+            subKey = keyboard.nextInt();
+            keyboard.nextLine();
+            int input = 0;
 
+            switch (subKey) {
+              case 1:
+                System.out.print("Enter a integer: ");
+                input = keyboard.nextInt();
+
+                System.out.println("The Fibonacci of " + input + " is " +
+                                   "findFibonacci(" + input + ") = " + 
+                                   DynamicFibonacci.findFibonacci(input));
+
+                System.out.println("The Fibonacci of " + input + " is " +
+                           "findFibonacciByArray(" + input + ") = " + 
+                           DynamicFibonacci.findFibonacciByArray(input));
+
+                break;
+              default:
+                if (subKey != 0) {
+                  System.out.println("Invalid Input!");
+                }
+                break;
+            }
+          } while (subKey != 0);
+          break;          
         default:
           if (inputKey != 0) {
             System.out.println("Invalid Input!");
@@ -614,6 +646,7 @@ public class AlgorithmExercise {
     System.out.println("7. Algorithm - Recursion");
     System.out.println("8. Algorithm - Sorting");
     System.out.println("9. Algorithm - Searching");
+    System.out.println("10. Dynamic Programming");
     System.out.println("0. Exit");
     System.out.println("========================================");
     System.out.print("Enter a choice: ");
@@ -693,7 +726,7 @@ public class AlgorithmExercise {
 
   public static void displayRecursionMenu()
   {
-    System.out.println("\n----- Algorithm Recursion --------------");
+    System.out.println("\n----- Algorithm - Recursion ------------");
     System.out.println("1. Find Factorial By Recursion");
     System.out.println("2. Find Facotiral By Iteration");
     System.out.println("3. Find Fibonacci By Recursion");
@@ -706,7 +739,7 @@ public class AlgorithmExercise {
 
   public static void displaySortingMenu()
   {
-    System.out.println("\n----- Algorithm Sorting ----------------");
+    System.out.println("\n----- Algorithm - Sorting --------------");
     System.out.println("1. Sort By Built-in Function");
     System.out.println("2. Sort By Bubble Sort");
     System.out.println("3. Sort By Selection Sort");
@@ -720,9 +753,18 @@ public class AlgorithmExercise {
 
   public static void displaySearchingMenu()
   {
-    System.out.println("\n----- Algorithm Searching --------------");
+    System.out.println("\n----- Algorithm - Searching ------------");
     System.out.println("1. Search By Breadth First Search");
     System.out.println("2. Search By Depth First Search");
+    System.out.println("0. Go Back");
+    System.out.println("----------------------------------------");
+    System.out.print("Enter a choice: ");
+  }  
+
+  public static void displayDynamicProgrammingMenu()
+  {
+    System.out.println("\n----- Dynamic Programming --------------");
+    System.out.println("1. Find Fibonacci Sequence");
     System.out.println("0. Go Back");
     System.out.println("----------------------------------------");
     System.out.print("Enter a choice: ");
@@ -1550,5 +1592,4 @@ public class AlgorithmExercise {
                        myTree.depthFirstSearchPostorder());    
 
   }  
-
 }
