@@ -250,10 +250,10 @@ public class BinarySearchTree extends BinaryTree
   }
 
   /**
-   * The breathFirstSearcc method searchs the binary search tree by BFS. 
+   * The breadthFirstSearch method searchs the binary search tree by BFS. 
    * @return list of the values of the tree by using BFS.
    */
-  public List<Integer> breathFirstSearch() 
+  public List<Integer> breadthFirstSearch() 
   {
     Node currentNode = root;
     List<Integer> list = new ArrayList<>();
@@ -276,14 +276,14 @@ public class BinarySearchTree extends BinaryTree
     return list;
   }
 
-  public List<Integer> breathFirstSearchR() 
+  public List<Integer> breadthFirstSearchR() 
   {
     Queue<Node> queue = new LinkedList<>();
     queue.add(root);
-    return breathFirstSearchR(queue, new ArrayList<>());
+    return breadthFirstSearchR(queue, new ArrayList<>());
   }
 
-  private List<Integer> breathFirstSearchR(Queue<Node> queue, 
+  private List<Integer> breadthFirstSearchR(Queue<Node> queue, 
                                            List<Integer> list) 
   {
     if (queue.isEmpty()) {
@@ -301,7 +301,7 @@ public class BinarySearchTree extends BinaryTree
       queue.add(currentNode.right);
     }
 
-    return breathFirstSearchR(queue, list);
+    return breadthFirstSearchR(queue, list);
   }
 
   /**

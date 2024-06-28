@@ -1564,10 +1564,10 @@ public class AlgorithmExercise {
     myTree.insert(15);
     myTree.insert(1);
 
-    System.out.println("Breath first search by Iteration: " + 
-                       myTree.breathFirstSearch());
-    System.out.println("Breath first search by Recursion: " + 
-                       myTree.breathFirstSearchR());
+    System.out.println("Breadth first search by Iteration: " + 
+                       myTree.breadthFirstSearch());
+    System.out.println("Breadth first search by Recursion: " + 
+                       myTree.breadthFirstSearchR());
 
   } 
 
